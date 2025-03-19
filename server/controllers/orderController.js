@@ -87,7 +87,7 @@ const placeOrderStripe = async (req, res) => {
     res.json({ success: true, session_url: session.url });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.json({ success: false, message: "Payment Error" });
   }
 };
 
@@ -98,7 +98,7 @@ const allOrders = async (req, res) => {
     res.json({ success: true, orders });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.json({ success: false, message: "Error" });
   }
 };
 //all orders data for user
@@ -139,7 +139,7 @@ const verifyStripe = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.json({ success: false, message: "Payment Error Occured" });
   }
 };
 
