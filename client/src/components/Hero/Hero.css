@@ -1,0 +1,122 @@
+.hero {
+  margin: 30px;
+}
+.hero-img img {
+  width: 1460px;
+  height: 700px;
+  position: relative;
+  border-radius: 10px;
+}
+.hero h3 {
+  position: absolute;
+  margin-left: 50px;
+  top: 150px;
+  background-color: transparent;
+  font-size: 70px;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
+}
+.hero h2 {
+  position: absolute;
+  top: 170px;
+  right: 130px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+@media (max-width: 400px) {
+  .hero {
+    margin: 15px;
+    margin-right: 20px;
+  }
+  .hero-img img {
+    width: 345px;
+    height: 255px;
+    border-radius: 0;
+    position: absolute;
+  }
+  .hero h3 {
+    font-size: 16px;
+    margin-left: 20px;
+    position: relative;
+    top: 20px;
+  }
+  .hero h2 {
+    font-size: 18px;
+    position: relative;
+    top: -51px;
+    left: 190px;
+    font-weight: 600;
+    font-style: italic;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .hero {
+    margin: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-img img {
+    width: 385px;
+    height: 255px;
+    border-radius: 0;
+  }
+
+  .hero h3 {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    top: -232px;
+    right: 170px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    right: -105px;
+    top: -320px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 365px) {
+  .hero {
+    margin: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-img img {
+    width: 330px;
+    height: 255px;
+    border-radius: 0;
+    position: absolute;
+  }
+  .hero h3 {
+    font-size: 16px;
+    margin-left: 20px;
+    position: relative;
+    top: 20px;
+  }
+  .hero h2 {
+    font-size: 16px;
+    position: relative;
+    top: -51px;
+    left: 155px;
+    font-weight: 600;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,145 @@
+.login {
+  padding: 50px 0px;
+  width: 100%;
+}
+.contain {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 25px 23px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.head {
+  display: flex;
+  background-color: transparent;
+  justify-content: space-between;
+  margin: auto 20px;
+}
+.head img {
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.head h1 {
+  background-color: transparent;
+  color: #ff5a5a;
+  font-size: 30px;
+  font-weight: 600;
+}
+.inputs {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  gap: 40px;
+}
+.detail {
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  margin-left: -50px;
+}
+.detail img {
+  width: 27px;
+  height: 27px;
+  background-color: transparent;
+  position: relative;
+  left: 72px;
+  z-index: 1;
+}
+.detail input {
+  background-color: #ffecf0;
+  padding: 12px 50px;
+  position: absolute;
+  margin-left: 60px;
+  border-radius: 25px;
+  width: 380px;
+  border: none;
+  outline: none;
+  color: #383838;
+}
+.detail input:focus {
+  border: 1px solid#E75480;
+}
+.subs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+  background-color: transparent;
+}
+.subs button {
+  background-color: #ff5a5a;
+  padding: 5px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  width: 90px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.subs p {
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  color: #383838;
+}
+.subs span {
+  background-color: transparent;
+  color: #4242c0;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .login {
+    padding: 20px;
+  }
+  .head {
+    align-items: center;
+  }
+  .head img {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+  .head h1 {
+    font-size: 20px;
+  }
+  .detail input {
+    width: 264px;
+    padding: 10px 44px;
+  }
+  .detail img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .login {
+    padding: 20px;
+  }
+  .head img {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+  .head {
+    align-items: center;
+  }
+  .head h1 {
+    font-size: 25px;
+  }
+  .detail input {
+    width: 295px;
+    padding: 10px 44px;
+  }
+  .detail img {
+    width: 20px;
+    height: 20px;
+  }
+}

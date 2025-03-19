@@ -1,0 +1,187 @@
+.admin-all-order {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-individual-order {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 1200px;
+  border: 1px solid #000;
+  padding: 10px 30px;
+  align-items: center;
+}
+.order-log-image {
+  width: 120px;
+  height: 120px;
+}
+.order-individual-first-sec {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 500px;
+  background-color: transparent;
+}
+.order-log-with-size {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  gap: 10px;
+  width: 180px;
+  color: #323232;
+  padding-bottom: 10px;
+}
+.order-log-with-size p {
+  background-color: transparent;
+}
+.order-log-size {
+  padding: 0px 6px;
+  background-color: transparent;
+  border: 1px solid #000;
+  height: 26px;
+}
+.order-log-name {
+  background-color: transparent;
+}
+.order-log-others {
+  background-color: transparent;
+  margin-left: 30px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  color: #323232;
+}
+.order-individual-second-sec {
+  background-color: transparent;
+  color: #323232;
+  display: flex;
+  flex-direction: column;
+}
+.order-log-price-tag {
+  background-color: #fbeaea;
+  border: 1px solid #000;
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+.order-individual-third-sec {
+  background-color: transparent;
+}
+.order-individual-third-sec select {
+  padding: 10px;
+  background-color: #f78db9;
+  width: 160px;
+  color: white;
+  border: 1px solid #000;
+  outline: none;
+  cursor: pointer;
+}
+.order-individual-third-sec select option {
+  background-color: white;
+  font-size: 15px;
+  color: #323232;
+}
+
+@media (max-width: 400px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}

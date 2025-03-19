@@ -1,0 +1,128 @@
+.denim {
+  margin: 30px;
+  margin-top: 60px;
+}
+.denim h1 {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 600;
+  font-family: Prata;
+  margin-bottom: 50px;
+  color: #ff69b4;
+}
+.ads {
+  display: flex;
+  border: 1px solid #000;
+  height: 515px;
+  padding: 40px;
+  gap: 30px;
+}
+.ads img {
+  width: 250px;
+  height: 430px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.ads img:hover {
+  transform: scale(1.02);
+}
+.ad-path {
+  margin-left: 170px;
+  background-color: transparent;
+}
+.ad-path img {
+  width: 180px;
+  height: 180px;
+  margin-top: 90px;
+  margin-left: 30px;
+}
+.ad-path button {
+  margin: 40px 0px;
+  background-color: #ffe1e2;
+  border: 1px solid #f697d5;
+  color: #ff69b4;
+  width: 180px;
+  height: 50px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: -18px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}

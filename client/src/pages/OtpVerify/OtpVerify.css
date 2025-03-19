@@ -1,0 +1,102 @@
+.otp-verify {
+  padding: 50px 0px;
+  width: 100%;
+}
+.otp-container {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 25px 23px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+}
+.otp-container h2 {
+  background-color: transparent;
+  color: #ff5a5a;
+  font-size: 25px;
+  font-weight: 600;
+}
+.otp-input-field {
+  display: flex;
+  gap: 56px;
+  background: transparent;
+}
+.otp-img-set input {
+  padding: 5px 12px;
+  border: 1px solid #ff5a5a;
+  border-radius: 15px;
+
+  outline: none;
+  color: #383838;
+}
+.otp-input-field button {
+  background: transparent;
+  padding: 3px 10px;
+  background-color: #ff5a5a;
+  width: 90px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.otp-container p {
+  background: transparent;
+  color: #3d3d3d;
+}
+.otp-resend-button {
+  background: transparent;
+  padding: 3px 10px;
+  background-color: #ff5a5a;
+  width: 120px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.otp-trouble {
+  color: #636363;
+  margin-top: 10px;
+}
+.otp-img-set img {
+  background: transparent;
+  height: 30px;
+  width: 30px;
+}
+.otp-img-set {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  gap: 7px;
+}
+
+@media (max-width: 400px) {
+  .otp-container {
+    max-width: 350px;
+  }
+  .otp-input-field {
+    gap: 36px;
+  }
+  .otp-img-set input {
+    width: 150px;
+  }
+  .otp-input-field button {
+    width: 75px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .otp-container {
+    max-width: 350px;
+  }
+  .otp-input-field {
+    gap: 36px;
+  }
+  .otp-img-set input {
+    width: 150px;
+  }
+  .otp-input-field button {
+    width: 75px;
+  }
+}

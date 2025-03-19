@@ -1,0 +1,130 @@
+.now {
+  margin: 30px;
+  margin-top: 60px;
+}
+.now h1 {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 600;
+  font-family: Prata;
+  margin-bottom: 50px;
+  color: #ff69b4;
+}
+.cover img {
+  width: 1460px;
+  height: 700px;
+  position: relative;
+  border-radius: 10px;
+}
+.cover button {
+  position: absolute;
+  top: 2670px;
+  left: 170px;
+  width: 250px;
+  height: 70px;
+  border: 1px solid #f697d5;
+  border-radius: 40px;
+  color: #f697d5;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .now {
+    margin-top: 10px;
+  }
+  .now h1 {
+    margin-top: -12px;
+    font-size: 52px;
+    line-height: 1;
+  }
+  .cover img {
+    margin-top: -20px;
+    width: 318px;
+    height: 310px;
+    border-radius: 0%;
+  }
+  .cover button {
+    width: 100px;
+    position: relative;
+    height: 34px;
+    top: -262px;
+    font-size: 16px;
+    left: 14px;
+  }
+}
+@media (min-width: 401px) and (max-width: 586px) {
+  .now,
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .now {
+    margin-top: 10px;
+  }
+
+  .now h1 {
+    margin-top: -12px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .cover img {
+    margin-top: -20px;
+    width: 355px;
+    height: 310px;
+    border-radius: 0%;
+    position: relative;
+  }
+
+  .cover button {
+    width: 100px;
+    position: relative;
+    height: 34px;
+    top: -238px;
+    font-size: 16px;
+    left: -105px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 360px) {
+  .now,
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center; /* Center text within elements (optional) */
+  }
+
+  .now {
+    margin-top: 10px;
+  }
+
+  .now h1 {
+    margin-top: -12px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .cover img {
+    margin-top: -20px;
+    width: 355px;
+    height: 310px;
+    border-radius: 0%;
+    position: relative;
+  }
+
+  .cover button {
+    width: 92px;
+    position: relative;
+    height: 27px;
+    top: -262px;
+    font-size: 14px;
+    left: -85px;
+  }
+}

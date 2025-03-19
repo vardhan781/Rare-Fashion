@@ -1,0 +1,30 @@
+.app-main-content {
+  display: flex;
+}
+.app-left-side {
+  width: 292px;
+  border-right: 1px solid black;
+}
+.app-right-side {
+  padding: 40px;
+}
+
+@media (max-width: 400px) {
+  .app-left-side {
+    width: 85px;
+  }
+  .app-right-side {
+    padding: 20px;
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .app-left-side {
+    width: 85px;
+  }
+  .app-right-side {
+    padding: 20px;
+    overflow-x: hidden;
+  }
+}

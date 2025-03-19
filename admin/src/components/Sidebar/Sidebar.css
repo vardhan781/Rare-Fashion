@@ -1,0 +1,77 @@
+.sidebar-main-content {
+  padding: 20px 30px;
+  min-height: 628px;
+}
+.sidebar-buttons {
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.sidebar-buttons button img {
+  width: 30px;
+  height: 30px;
+}
+.sidebar-action-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 140px;
+  height: 44px;
+  padding: 5px 12px;
+  font-size: 20px;
+  background-color: #ffd4d4;
+  border-radius: 16px;
+  outline: none;
+  border: 1px solid #ee8cd4;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+.selected-action-button {
+  background-color: #fbeaea;
+}
+
+@media (max-width: 400px) {
+  .sidebar-main-content {
+    padding: 20px 10px;
+  }
+  .sidebar-buttons button img {
+    width: 20px;
+    height: 18px;
+  }
+  .sidebar-buttons button p {
+    display: none;
+  }
+  .sidebar-action-button {
+    gap: 0px;
+    width: 48px;
+    height: 38px;
+    padding: 0px 14px;
+  }
+  .selected-action-button {
+    background-color: #fbeaea;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 586px) {
+  .sidebar-main-content {
+    padding: 20px 10px;
+  }
+  .sidebar-buttons button img {
+    width: 20px;
+    height: 18px;
+  }
+  .sidebar-buttons button p {
+    display: none;
+  }
+  .sidebar-action-button {
+    gap: 0px;
+    width: 48px;
+    height: 38px;
+    padding: 0px 14px;
+  }
+  .selected-action-button {
+    background-color: #fbeaea;
+  }
+}

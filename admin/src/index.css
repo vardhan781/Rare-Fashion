@@ -1,0 +1,11 @@
+@import "tailwindcss";
+* {
+  background-color: #fbeaea;
+  font-family: sans-serif;
+}
+
+p,
+h1,
+img {
+  background-color: transparent;
+}
