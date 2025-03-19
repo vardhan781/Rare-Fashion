@@ -76,7 +76,7 @@
     margin-top: 10px;
     position: relative;
     top: -232px;
-    right: 170px;
+    right: 162px;
   }
 
   .hero h2 {
@@ -86,37 +86,7 @@
     text-align: center;
     margin-top: 10px;
     position: relative;
-    right: -105px;
+    right: -100px;
     top: -320px;
-  }
-}
-
-@media (min-width: 300px) and (max-width: 365px) {
-  .hero {
-    margin: 15px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  }
-  .hero-img img {
-    width: 330px;
-    height: 255px;
-    border-radius: 0;
-    position: absolute;
-  }
-  .hero h3 {
-    font-size: 16px;
-    margin-left: 20px;
-    position: relative;
-    top: 20px;
-  }
-  .hero h2 {
-    font-size: 16px;
-    position: relative;
-    top: -51px;
-    left: 155px;
-    font-weight: 600;
-    font-style: italic;
   }
 }
