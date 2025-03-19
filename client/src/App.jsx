@@ -35,6 +35,7 @@ const App = () => {
           textAlign: "left",
           borderRadius: "10px",
         }}
+        className="custom-toast-container"
       />
 
       <Navbar />

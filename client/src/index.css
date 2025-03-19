@@ -12,3 +12,6 @@
   font-weight: 400;
   font-style: normal;
 }
+.custom-toast-container .Toastify__toast-icon {
+  background-color: transparent !important;
+}

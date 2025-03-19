@@ -135,7 +135,7 @@ const verifyStripe = async (req, res) => {
       res.json({ success: true });
     } else {
       await orderModel.findByIdAndDelete(orderId);
-      res.json({ success: false , message:"Order Placed With Payment Due"});
+      res.json({ success: false, message: "Payment Error Occured" });
     }
   } catch (error) {
     console.log(error);
