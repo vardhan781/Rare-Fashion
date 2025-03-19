@@ -1,5 +1,8 @@
 import jwt from "jsonwebtoken";
 
+const admin_email = "anjali@rarefashion.in";
+const admin_password = "12345678";
+
 const adminAuth = async (req, res, next) => {
   try {
     const { token } = req.headers;
@@ -10,7 +13,7 @@ const adminAuth = async (req, res, next) => {
       });
     }
     const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-    if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
+    if (token_decode !== admin_email + admin_password) {
       return res.json({
         success: false,
         message: "Not authorized , Login again",
