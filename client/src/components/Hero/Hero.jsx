@@ -10,7 +10,7 @@ const Hero = () => {
       </div>
       <h3>
         Explore <br />
-        The <br /> Anjali Meddy
+        The <br /> Latest
       </h3>
       <h2>Summer is here</h2>
     </div>
