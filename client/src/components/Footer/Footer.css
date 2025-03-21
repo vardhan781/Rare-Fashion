@@ -44,7 +44,9 @@
   color: #b4b1b1;
 }
 
-@media (max-width: 400px) {
+/* Standard Phones */
+
+@media (min-width: 370px) and (max-width: 400px) {
   .footer {
     display: flex;
     flex-direction: column;
@@ -74,7 +76,41 @@
   }
 }
 
+/* Larger Phone Screens */
+
 @media (min-width: 401px) and (max-width: 586px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 18px;
+  }
+  .footer img {
+    width: 90px;
+  }
+  .remind {
+    margin-top: 10px;
+  }
+  .remind p {
+    font-size: 15px;
+    text-align: left;
+  }
+  .socials {
+    gap: 16px;
+    margin-left: 0;
+  }
+  .socials img {
+    width: 30px;
+    height: 25px;
+    margin-top: 0;
+  }
+  .remind .copyright {
+    margin-top: 10px;
+  }
+}
+
+/* Small Screen Phones */
+
+@media (min-width: 320px) and (max-width: 370px) {
   .footer {
     display: flex;
     flex-direction: column;
@@ -101,5 +137,41 @@
   }
   .remind .copyright {
     margin-top: 10px;
+  }
+}
+
+/* Every Other Screen Displays */
+@media (min-width: 587px) and (max-width: 767px) {
+  .footer {
+    display: flex;
+    padding: 10px 18px;
+  }
+  .footer img {
+    width: 120px;
+  }
+  .remind {
+    margin-top: 10px;
+  }
+  .remind p {
+    font-size: 15px;
+    text-align: left;
+  }
+  .socials {
+    gap: 16px;
+    margin-left: 0;
+  }
+  .socials img {
+    width: 30px;
+    height: 25px;
+    margin-top: 0;
+  }
+  .remind .copyright {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 587px) and (max-width: 620px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
   }
 }
