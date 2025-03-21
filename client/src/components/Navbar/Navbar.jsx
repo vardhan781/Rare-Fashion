@@ -72,7 +72,45 @@ const Navbar = () => {
               <img onClick={cartPath} src={assets.shopping_cart} alt="" />
               {getCartAmount() === 0 ? "" : <span></span>}
             </div>
-            <img onClick={drop} src={assets.user} alt="" />
+            <div className="user-icon-state">
+              <img onClick={drop} src={assets.user} alt="" />
+              {/* Dropdown box */}
+              {dropdown ? (
+                <div className="drop-menu">
+                  <ul>
+                    <li
+                      onClick={() => {
+                        if (localStorage.getItem("token")) {
+                          navigate("orders");
+                          setDropdown(false);
+                        } else {
+                          toast.info("You are not logged in");
+                          setDropdown(false);
+                        }
+                      }}
+                    >
+                      Orders
+                    </li>
+                    <li
+                      onClick={() => {
+                        if (localStorage.getItem("token")) {
+                          logOut();
+                          setDropdown(false);
+                        } else {
+                          toast.info("You are not logged in");
+                          setDropdown(false);
+                        }
+                      }}
+                    >
+                      Logout
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
             <img
               className="side-icon"
               onClick={toggle}
@@ -82,43 +120,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-
-      {/* Dropdown box */}
-
-      {dropdown ? (
-        <div className="drop-menu">
-          <ul>
-            <li
-              onClick={() => {
-                if (localStorage.getItem("token")) {
-                  navigate("orders");
-                  setDropdown(false);
-                } else {
-                  toast.info("You are not logged in");
-                  setDropdown(false);
-                }
-              }}
-            >
-              Orders
-            </li>
-            <li
-              onClick={() => {
-                if (localStorage.getItem("token")) {
-                  logOut();
-                  setDropdown(false);
-                } else {
-                  toast.info("You are not logged in");
-                  setDropdown(false);
-                }
-              }}
-            >
-              Logout
-            </li>
-          </ul>
-        </div>
-      ) : (
-        ""
-      )}
 
       {/* Downbar for Small Screen */}
 

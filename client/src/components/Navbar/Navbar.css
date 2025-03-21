@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 .login-placeholder {
-  width: 85px; /* same width as your login button */ /* same height as your login button */
+  width: 85px;
   display: hidden;
   background-color: transparent;
 }
@@ -98,10 +98,14 @@
   margin-top: 3px;
   color: #fff;
 }
+.user-icon-state {
+  position: relative;
+  background-color: transparent;
+}
 .drop-menu {
   position: absolute;
-  left: 1425px;
-  top: 68px;
+  top: 40px;
+  right: -15px;
   background-color: #e07ba1;
   padding: 5px 10px;
   border-radius: 5px;
@@ -119,7 +123,9 @@ li {
   background-color: transparent;
 }
 
-@media (max-width: 400px) {
+/* Standard Phones */
+
+@media (min-width: 370px) and (max-width: 400px) {
   .links {
     display: none;
   }
@@ -141,15 +147,20 @@ li {
   .right .side-icon {
     display: block;
   }
+  .user-icon-state img {
+    width: 45px;
+  }
   .drop-menu {
-    left: 237px;
-    padding: 2px 7px;
+    top: 40px;
+    right: -12px;
   }
   .drop-menu ul,
   li {
     font-size: 14px;
   }
 }
+
+/* Larger Screen Phones */
 
 @media (min-width: 401px) and (max-width: 586px) {
   .links {
@@ -175,11 +186,183 @@ li {
     width: 45px;
   }
   .drop-menu {
-    left: 300px;
-    padding: 2px 7px;
+    top: 40px;
+    right: -12px;
   }
   .drop-menu ul,
   li {
     font-size: 14px;
+  }
+}
+
+/* Small Screen Phones */
+
+@media (min-width: 320px) and (max-width: 370px) {
+  .links {
+    display: none;
+  }
+  .left {
+    margin: 10px 6px;
+  }
+  .left img {
+    width: 120px;
+  }
+  .right {
+    gap: 8px;
+  }
+  .right img {
+    width: 34px;
+    height: 34px;
+  }
+  .right .cart-icon {
+    display: none;
+  }
+  .right .side-icon {
+    display: block;
+    width: 36px;
+    height: 38px;
+  }
+  .user-icon-state img {
+    width: 45px;
+
+    height: 32px;
+  }
+  .drop-menu {
+    top: 40px;
+    padding: 2px 8px;
+    right: -12px;
+  }
+  .drop-menu ul,
+  li {
+    font-size: 14px;
+  }
+  .right button {
+    font-size: 14px;
+  }
+  .sidebar {
+    gap: 15px;
+  }
+}
+
+/* Smaller Tablets (Landscape mode tablet) */
+@media (min-width: 587px) and (max-width: 767px) {
+  .links {
+    display: none;
+  }
+  .left {
+    margin: 10px 6px;
+  }
+  .left img {
+    width: 120px;
+  }
+  .right {
+    gap: 20px;
+  }
+  .right img {
+    width: 38px;
+  }
+  .right .cart-icon {
+    display: none;
+  }
+  .right .side-icon {
+    display: block;
+    width: 45px;
+  }
+  .sidebar {
+    gap: 50px;
+  }
+  .drop-menu {
+    top: 40px;
+    right: -12px;
+  }
+  .drop-menu ul,
+  li {
+    font-size: 14px;
+  }
+}
+
+/* Standard Tablets (Smaller Laptops) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .links {
+    display: none;
+  }
+  .left {
+    margin: 10px 6px;
+  }
+  .left img {
+    width: 120px;
+  }
+  .right {
+    gap: 20px;
+  }
+  .right img {
+    width: 38px;
+  }
+  .right .cart-icon {
+    display: none;
+  }
+  .right .side-icon {
+    display: block;
+  }
+  .sidebar {
+    gap: 50px;
+  }
+
+  .drop-menu {
+    top: 40px;
+    right: -12px;
+  }
+  .drop-menu ul,
+  li {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 830px) and (max-width: 991px) {
+  .links {
+    display: block;
+  }
+  .right {
+    gap: 10px;
+  }
+  .right .side-icon {
+    display: none;
+  }
+  .right .cart-icon {
+    display: block;
+  }
+}
+
+/* Standard Desktop Screens */
+@media (min-width: 992px) and (max-width: 1250px) {
+  .links {
+    display: block;
+  }
+  .left {
+    margin: 10px 6px;
+  }
+  .left img {
+    width: 120px;
+  }
+  .right {
+    gap: 20px;
+  }
+  .right img {
+    width: 38px;
+  }
+  .right .cart-icon {
+    display: block;
+  }
+  .right .side-icon {
+    display: none;
+  }
+
+  .drop-menu {
+    top: 40px;
+    right: -12px;
+  }
+  .drop-menu ul,
+  li {
+    font-size: 15px;
   }
 }
