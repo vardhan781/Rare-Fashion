@@ -162,7 +162,7 @@ li {
 
 /* Larger Screen Phones */
 
-@media (min-width: 401px) and (max-width: 586px) {
+@media (min-width: 401px) and (max-width: 587px) {
   .links {
     display: none;
   }
@@ -245,7 +245,7 @@ li {
 }
 
 /* Smaller Tablets (Landscape mode tablet) */
-@media (min-width: 587px) and (max-width: 767px) {
+@media (min-width: 587px) and (max-width: 768px) {
   .links {
     display: none;
   }
@@ -334,7 +334,7 @@ li {
 }
 
 /* Standard Desktop Screens */
-@media (min-width: 992px) and (max-width: 1250px) {
+@media (min-width: 991px) and (max-width: 1250px) {
   .links {
     display: block;
   }

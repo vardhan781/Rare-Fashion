@@ -29,7 +29,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+/* Standard Screens */
+@media (min-width: 370px) and (max-width: 400px) {
   .now {
     margin-top: 10px;
   }
@@ -53,6 +54,7 @@
     left: 14px;
   }
 }
+/* Large Screens */
 @media (min-width: 401px) and (max-width: 586px) {
   .now,
   .cover {
@@ -87,18 +89,20 @@
     height: 34px;
     top: -238px;
     font-size: 16px;
-    left: -105px;
+    left: -115px;
   }
 }
 
-@media (min-width: 300px) and (max-width: 360px) {
+/* Small Screen Phones */
+
+@media (min-width: 320px) and (max-width: 370px) {
   .now,
   .cover {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    text-align: center; /* Center text within elements (optional) */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .now {
@@ -120,11 +124,114 @@
   }
 
   .cover button {
-    width: 92px;
+    width: 80px;
     position: relative;
-    height: 27px;
-    top: -262px;
-    font-size: 14px;
-    left: -85px;
+    height: 24px;
+    top: -263px;
+    font-size: 11px;
+    left: -82px;
+  }
+}
+
+@media (min-width: 445px) and (max-width: 586px) {
+  .cover img {
+    margin-top: -20px;
+    width: 485px;
+    height: 310px;
+    border-radius: 0%;
+    position: relative;
+  }
+  .cover button {
+    left: -140px;
+  }
+}
+
+/* Small Tablet Screens */
+@media (min-width: 586px) and (max-width: 767px) {
+  .now,
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .now {
+    margin-top: 10px;
+  }
+
+  .now h1 {
+    margin-top: -12px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .cover img {
+    margin-top: -20px;
+    width: 647px;
+    height: 327px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .cover button {
+    width: 150px;
+    position: relative;
+    height: 40px;
+    top: -244px;
+    font-size: 20px;
+    left: -180px;
+  }
+}
+
+/* Standard i-Pads */
+@media (min-width: 767px) and (max-width: 991px) {
+  .now,
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .now {
+    margin-top: 10px;
+  }
+
+  .now h1 {
+    margin-top: -12px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .cover img {
+    margin-top: -20px;
+    width: 647px;
+    height: 327px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .cover button {
+    width: 150px;
+    position: relative;
+    height: 40px;
+    top: -244px;
+    font-size: 20px;
+    left: -180px;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1290px) {
+  .cover button {
+    width: 250px;
+    height: 70px;
+    position: relative;
+
+    top: -540px;
+    font-size: 30px;
+    left: 100px;
   }
 }

@@ -48,7 +48,9 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+/* Standard Phone Screen */
+
+@media (min-width: 370px) and (max-width: 400px) {
   .summer {
     margin-top: 173px;
   }
@@ -86,7 +88,9 @@
     left: -18px;
   }
 }
-@media (min-width: 401px) and (max-width: 586px) {
+
+/* Larger Screen Phones */
+@media (min-width: 401px) and (max-width: 587px) {
   .summer {
     margin-top: -21px;
   }
@@ -122,5 +126,172 @@
     max-height: 40px;
     position: absolute;
     left: 0px;
+  }
+}
+
+/* Small Screen Phones */
+
+@media (min-width: 320px) and (max-width: 370px) {
+  .summer {
+    margin-top: 0px;
+  }
+  .summer h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: -18px;
+  }
+}
+
+/* Smaller Tablets (Landscape mode tablet) */
+@media (min-width: 587px) and (max-width: 767px) {
+  .summer {
+    margin-top: 0px;
+  }
+  .summer h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path img {
+    margin-left: -24px;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 0px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+
+/* Standard Tablets (Smaller Laptops) */
+@media (min-width: 767px) and (max-width: 991px) {
+  .summer {
+    margin-top: -60px;
+  }
+  .summer h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path img {
+    margin-left: -24px;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 0px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+
+/* Standard Desktop Screens */
+@media (min-width: 991px) and (max-width: 1290px) {
+  .summer {
+    margin-top: 0px;
+  }
+  .summer h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 0px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 40px;
   }
 }

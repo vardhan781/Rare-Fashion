@@ -47,7 +47,9 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+/* Standard Phone Screen */
+
+@media (min-width: 370px) and (max-width: 400px) {
   .denim {
     margin-top: 17px;
   }
@@ -87,6 +89,8 @@
   }
 }
 
+/* Larger Screen */
+
 @media (min-width: 401px) and (max-width: 586px) {
   .denim {
     margin-top: 17px;
@@ -117,6 +121,170 @@
   .ad-path {
     position: absolute;
     left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+
+/* Small Screen Phones */
+
+@media (min-width: 320px) and (max-width: 370px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+
+/* Smaller Tablets (Landscape mode tablet) */
+@media (min-width: 587px) and (max-width: 767px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+
+/* Standard Tablets (Smaller Laptops) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 45px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 666px;
+    top: 100px;
+  }
+  .ad-path button {
+    max-width: 131px;
+    max-height: 40px;
+    position: absolute;
+    left: 0px;
+  }
+}
+/* Standard Desktop Screens */
+@media (min-width: 991px) and (max-width: 1290px) {
+  .denim {
+    margin-top: 17px;
+  }
+  .denim h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: -12px;
+  }
+  .ads {
+    margin-top: -20px;
+    max-height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 70px;
+    position: relative;
+  }
+  .ads::-webkit-scrollbar {
+    display: none;
+  }
+  .ads img {
+    max-width: 240px;
+    max-height: 368px;
+    margin-top: -24px;
+    margin-left: -21px;
+    border-radius: 0%;
+  }
+  .ad-path {
+    position: absolute;
+    left: 766px;
     top: 100px;
   }
   .ad-path button {
