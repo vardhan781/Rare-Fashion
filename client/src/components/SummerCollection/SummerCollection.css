@@ -136,7 +136,7 @@
     margin-top: 0px;
   }
   .summer h1 {
-    font-size: 40px;
+    font-size: 25px;
     line-height: 1;
   }
   .ads {
@@ -195,7 +195,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path img {
     margin-left: -24px;
@@ -214,9 +214,10 @@
 }
 
 /* Standard Tablets (Smaller Laptops) */
+
 @media (min-width: 767px) and (max-width: 991px) {
   .summer {
-    margin-top: -60px;
+    margin-top: 0px;
   }
   .summer h1 {
     font-size: 40px;
@@ -238,7 +239,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path img {
     margin-left: -24px;
@@ -281,7 +282,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;

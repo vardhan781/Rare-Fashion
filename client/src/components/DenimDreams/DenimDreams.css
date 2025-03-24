@@ -138,7 +138,7 @@
     margin-top: 17px;
   }
   .denim h1 {
-    font-size: 50px;
+    font-size: 25px;
     line-height: 1;
     margin-top: -12px;
   }
@@ -199,7 +199,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;
@@ -240,7 +240,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;
@@ -280,7 +280,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;

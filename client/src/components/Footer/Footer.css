@@ -78,7 +78,7 @@
 
 /* Larger Phone Screens */
 
-@media (min-width: 401px) and (max-width: 586px) {
+@media (min-width: 401px) and (max-width: 587px) {
   .footer {
     display: flex;
     flex-direction: column;
