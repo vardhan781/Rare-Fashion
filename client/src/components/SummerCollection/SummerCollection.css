@@ -92,11 +92,13 @@
 /* Larger Screen Phones */
 @media (min-width: 401px) and (max-width: 587px) {
   .summer {
-    margin-top: -21px;
+    margin-top: -110px;
   }
   .summer h1 {
     font-size: 40px;
     line-height: 1;
+    z-index: 1;
+    position: relative;
   }
   .ads {
     margin-top: -20px;
@@ -133,11 +135,13 @@
 
 @media (min-width: 320px) and (max-width: 370px) {
   .summer {
-    margin-top: 0px;
+    margin-top: -90px;
   }
   .summer h1 {
     font-size: 25px;
     line-height: 1;
+    z-index: 1;
+    position: relative;
   }
   .ads {
     margin-top: -20px;
@@ -173,11 +177,13 @@
 /* Smaller Tablets (Landscape mode tablet) */
 @media (min-width: 587px) and (max-width: 767px) {
   .summer {
-    margin-top: 0px;
+    margin-top: -125px;
   }
   .summer h1 {
-    font-size: 40px;
+    font-size: 50px;
     line-height: 1;
+    z-index: 1;
+    position: relative;
   }
   .ads {
     margin-top: -20px;
@@ -217,11 +223,13 @@
 
 @media (min-width: 767px) and (max-width: 991px) {
   .summer {
-    margin-top: 0px;
+    margin-top: -180px;
   }
   .summer h1 {
-    font-size: 40px;
+    font-size: 50px;
     line-height: 1;
+    z-index: 1;
+    position: relative;
   }
   .ads {
     margin-top: -20px;
@@ -263,7 +271,7 @@
     margin-top: 0px;
   }
   .summer h1 {
-    font-size: 40px;
+    font-size: 60px;
     line-height: 1;
   }
   .ads {
