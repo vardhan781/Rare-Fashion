@@ -159,8 +159,9 @@
   }
 
   .hero-img img {
-    width: 540px;
-    height: 285px;
+    width: 684px;
+    height: 333px;
+
     border-radius: 10px;
   }
 
@@ -169,8 +170,8 @@
     text-align: center;
     margin-top: 10px;
     position: relative;
-    top: -270px;
-    right: 225px;
+    top: -314px;
+    right: 248px;
   }
 
   .hero h2 {
@@ -180,8 +181,8 @@
     text-align: center;
     margin-top: 10px;
     position: relative;
-    right: -163px;
-    top: -370px;
+    right: -180px;
+    top: -415px;
   }
 }
 /* Standard i-Pads */
@@ -196,8 +197,8 @@
   }
 
   .hero-img img {
-    width: 716px;
-    height: 400px;
+    width: 900px;
+    height: 443px;
     border-radius: 10px;
     margin-top: 30px;
   }
@@ -207,8 +208,8 @@
     text-align: center;
     margin-top: 10px;
     position: relative;
-    top: -385px;
-    right: 282px;
+    top: -428px;
+    right: 317px;
   }
 
   .hero h2 {
@@ -218,8 +219,8 @@
     text-align: center;
     margin-top: 10px;
     position: relative;
-    right: -204px;
-    top: -522px;
+    right: -242px;
+    top: -563px;
   }
 }
 
@@ -247,7 +248,7 @@
   .hero h2 {
     position: absolute;
     top: 170px;
-    right: 130px;
+    right: 100px;
     background-color: transparent;
     color: #fff;
     font-size: 50px;
