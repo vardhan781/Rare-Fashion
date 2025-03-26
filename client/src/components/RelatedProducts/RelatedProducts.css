@@ -39,3 +39,16 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+@media (min-width: 586px) and (max-width: 775px) {
+  .display-related-products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 950px) and (max-width: 1050px) {
+  .display-related-products {
+    gap: 50px;
+  }
+}
