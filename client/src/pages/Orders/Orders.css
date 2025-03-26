@@ -228,8 +228,21 @@
   }
 }
 
-@media (min-width: 1120px) and (max-width: 1300px) {
+@media (min-width: 1120px) and (max-width: 1350px) {
   .all-orders-sec {
     width: 1050px;
+  }
+}
+
+/* Very Big Screens */
+@media (min-width: 1770px) and (max-width: 2000px) {
+  .all-orders-sec {
+    width: 1500px;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 2500px) {
+  .all-orders-sec {
+    width: 1800px;
   }
 }

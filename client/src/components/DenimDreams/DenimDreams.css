@@ -37,7 +37,7 @@
   margin-left: 30px;
 }
 .ad-path button {
-  margin: 40px 0px;
+  margin: 40px 30px;
   background-color: #ffe1e2;
   border: 1px solid #f697d5;
   color: #ff69b4;
@@ -255,7 +255,7 @@
   }
 }
 /* Standard Desktop Screens */
-@media (min-width: 991px) and (max-width: 1290px) {
+@media (min-width: 991px) and (max-width: 1470px) {
   .denim {
     margin-top: 17px;
   }
@@ -293,4 +293,19 @@
     position: absolute;
     left: 0px;
   }
+}
+
+/* Very Big Screens */
+@media (min-width: 1770px) and (max-width: 2500px) {
+  .ads {
+    padding: 40px 280px;
+  }
+}
+
+.ads img {
+  width: 300px;
+}
+
+.ad-path img {
+  width: 200px;
 }

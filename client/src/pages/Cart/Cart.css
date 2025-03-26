@@ -189,7 +189,7 @@
   }
 }
 
-@media (min-width: 401px) and (max-width: 586px) {
+@media (min-width: 401px) and (max-width: 620px) {
   .cart-page {
     padding: 20px 10px;
     gap: 15px;

@@ -37,7 +37,7 @@
   background-color: transparent;
 }
 .ad-path button {
-  margin: 40px 0px;
+  margin: 40px 30px;
   margin-left: 10px;
   background-color: #ffe1e2;
   border: 1px solid #f697d5;
@@ -127,7 +127,7 @@
     max-width: 131px;
     max-height: 40px;
     position: absolute;
-    left: 0px;
+    left: -25px;
   }
 }
 
@@ -170,7 +170,7 @@
     max-width: 131px;
     max-height: 40px;
     position: absolute;
-    left: -18px;
+    left: -25px;
   }
 }
 
@@ -215,7 +215,7 @@
     max-width: 131px;
     max-height: 40px;
     position: absolute;
-    left: 0px;
+    left: -25px;
   }
 }
 
@@ -261,12 +261,12 @@
     max-width: 131px;
     max-height: 40px;
     position: absolute;
-    left: 0px;
+    left: -25px;
   }
 }
 
 /* Standard Desktop Screens */
-@media (min-width: 991px) and (max-width: 1290px) {
+@media (min-width: 991px) and (max-width: 1470px) {
   .summer {
     margin-top: 0px;
   }
@@ -301,6 +301,21 @@
     max-width: 131px;
     max-height: 40px;
     position: absolute;
-    left: 40px;
+    right: -25px;
   }
+}
+
+/* Very Big Screens */
+@media (min-width: 1770px) and (max-width: 2500px) {
+  .ads {
+    padding: 40px 280px;
+  }
+}
+
+.ads img {
+  width: 300px;
+}
+
+.ad-path img {
+  width: 200px;
 }

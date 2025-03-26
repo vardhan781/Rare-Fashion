@@ -210,7 +210,6 @@
     margin-top: -20px;
     width: 888px;
     height: 397px;
-
     border-radius: 10px;
     position: relative;
   }
@@ -225,14 +224,29 @@
   }
 }
 
-@media (min-width: 991px) and (max-width: 1290px) {
+@media (min-width: 991px) and (max-width: 1515px) {
   .cover button {
     width: 250px;
     height: 70px;
     position: relative;
-
     top: -540px;
     font-size: 30px;
     left: 100px;
+  }
+}
+
+/* Very Big Screens */
+@media (min-width: 1515px) and (max-width: 2500px) {
+  .cover img {
+    width: 2500px;
+    height: 1000px;
+  }
+  .cover button {
+    width: 280px;
+    height: 85px;
+    position: relative;
+    top: -840px;
+    font-size: 35px;
+    left: 220px;
   }
 }

@@ -255,3 +255,11 @@
     font-weight: 600;
   }
 }
+
+/* Very Big Screens */
+@media (min-width: 1515px) and (max-width: 2500px) {
+  .hero-img img {
+    width: 2500px;
+    height: 880px;
+  }
+}

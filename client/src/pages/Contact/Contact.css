@@ -73,3 +73,10 @@
     font-size: 14px;
   }
 }
+
+/* Very Big Screens */
+@media (min-width: 1550px) and (max-width: 2500px) {
+  .contact-page {
+    font-size: larger;
+  }
+}
