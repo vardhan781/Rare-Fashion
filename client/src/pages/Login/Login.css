@@ -94,7 +94,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+/* Standard Screens */
+@media (min-width: 370px) and (max-width: 400px) {
   .login {
     padding: 20px;
   }
@@ -119,6 +120,7 @@
   }
 }
 
+/* Larger Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .login {
     padding: 20px;
@@ -135,7 +137,57 @@
     font-size: 25px;
   }
   .detail input {
-    width: 295px;
+    width: 300px;
+    padding: 10px 44px;
+  }
+  .detail img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 470px) {
+  .detail input {
+    width: 340px;
+  }
+}
+
+@media (min-width: 470px) and (max-width: 500px) {
+  .detail input {
+    width: 370px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 540px) {
+  .detail input {
+    width: 400px;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 586px) {
+  .detail input {
+    width: 400px;
+  }
+}
+
+/* Smaller Screen */
+@media (min-width: 320px) and (max-width: 370px) {
+  .login {
+    padding: 14px;
+  }
+  .head {
+    align-items: center;
+  }
+  .head img {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+  .head h1 {
+    font-size: 18px;
+  }
+  .detail input {
+    width: 240px;
     padding: 10px 44px;
   }
   .detail img {

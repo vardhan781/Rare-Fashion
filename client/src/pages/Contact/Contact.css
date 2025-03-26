@@ -44,7 +44,8 @@
   text-align: center;
 }
 
-@media (max-width: 400px) {
+/* Standar Screen Size */
+@media (min-width: 370px) and (max-width: 400px) {
   .contact-page h1 {
     font-size: 27px;
   }
@@ -53,11 +54,22 @@
   }
 }
 
+/* Large Mobile Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .contact-page h1 {
     font-size: 27px;
   }
   .contact-page h3 {
     font-size: 15px;
+  }
+}
+
+/* Small Screens */
+@media (min-width: 320px) and (max-width: 370px) {
+  .contact-page h1 {
+    font-size: 25px;
+  }
+  .contact-page h3 {
+    font-size: 14px;
   }
 }

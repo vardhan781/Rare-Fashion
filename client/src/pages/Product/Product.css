@@ -83,7 +83,8 @@
   padding: 40px 80px;
 }
 
-@media (max-width: 400px) {
+/* Standard Screen */
+@media (min-width: 370px) and (max-width: 400px) {
   .product-display {
     padding: 10px 25px;
     display: flex;
@@ -244,3 +245,6 @@
     padding: 20px;
   }
 }
+
+
+
