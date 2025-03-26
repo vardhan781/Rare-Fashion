@@ -430,3 +430,10 @@
     max-width: 360px;
   }
 }
+
+/* Very Big Screen */
+@media (min-width: 1990px) and (max-width: 2500px) {
+  .product-display {
+    margin-left: 375px;
+  }
+}
