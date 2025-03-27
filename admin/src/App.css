@@ -9,6 +9,7 @@
   padding: 40px;
 }
 
+/* Standard Screen */
 @media (max-width: 400px) {
   .app-left-side {
     width: 85px;
@@ -19,10 +20,27 @@
   }
 }
 
+/* Large Mobile Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .app-left-side {
     width: 85px;
   }
+  .app-right-side {
+    padding: 20px;
+    overflow-x: hidden;
+  }
+}
+
+/* Bigger Screens */
+@media (min-width: 586px) and (max-width: 800px) {
+  .app-right-side {
+    padding: 20px;
+    overflow-x: hidden;
+  }
+}
+
+/* Tablet Screens */
+@media (min-width: 800px) and (max-width: 940px) {
   .app-right-side {
     padding: 20px;
     overflow-x: hidden;

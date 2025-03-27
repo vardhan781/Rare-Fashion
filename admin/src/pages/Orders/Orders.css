@@ -84,7 +84,8 @@
   color: #323232;
 }
 
-@media (max-width: 400px) {
+/* Standard Screen */
+@media (min-width: 370px) and (max-width: 400px) {
   .admin-all-order {
     gap: 10px;
   }
@@ -136,6 +137,7 @@
   }
 }
 
+/* Large Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .admin-all-order {
     gap: 10px;
@@ -144,6 +146,271 @@
     display: flex;
     flex-direction: column;
     width: 250px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+    background: transparent;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+/* Standard Screen */
+@media (min-width: 320px) and (max-width: 370px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 190px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+    background: transparent;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+/* Large Screen */
+@media (min-width: 586px) and (max-width: 767px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+    background: transparent;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+/* Large Screen */
+@media (min-width: 767px) and (max-width: 991px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+    background: transparent;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+/* Large Screen */
+@media (min-width: 991px) and (max-width: 1220px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 10px;
+    align-items: start;
+  }
+  .order-log-image {
+    width: 50px;
+    height: 50px;
+  }
+  .order-individual-first-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: 300px;
+  }
+  .order-log-with-size {
+    font-size: 14px;
+    width: 225px;
+  }
+  .order-log-size {
+    height: 20px;
+  }
+  .order-log-others {
+    font-size: 14px;
+    margin-left: 0px;
+    background: transparent;
+  }
+  .order-individual-second-sec {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .order-log-price-tag {
+    margin-top: 10px;
+    border-radius: 0px;
+  }
+  .order-individual-third-sec {
+    margin-top: 10px;
+  }
+  .order-individual-third-sec select {
+    padding: 4px;
+    font-size: 14px;
+    width: 140px;
+  }
+}
+
+/* Large Screen */
+@media (min-width: 1220px) and (max-width: 1480px) {
+  .admin-all-order {
+    gap: 10px;
+  }
+  .user-individual-order {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
     padding: 10px;
     align-items: start;
   }

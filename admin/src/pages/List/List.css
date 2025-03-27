@@ -43,7 +43,7 @@
   width: 175px;
 }
 
-@media (max-width: 400px) {
+@media (min-width: 370px) and (max-width: 400px) {
   .list-added-products {
     gap: 8px;
   }
@@ -63,6 +63,7 @@
   }
 }
 
+/* Large Mobile Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .list-added-products {
     gap: 8px;
@@ -79,6 +80,64 @@
   .ind-action-button {
     position: absolute;
     top: 26px;
-    left: 220px;
+    left: 270px;
+  }
+}
+
+/* Small Mobile Screen */
+@media (min-width: 320px) and (max-width: 370px) {
+  .list-added-products {
+    gap: 8px;
+  }
+  .heading-of-list {
+    display: none;
+  }
+  .product-show-individual {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+  }
+  .ind-action-button {
+    position: absolute;
+    top: 26px;
+    left: 200px;
+  }
+}
+
+/* Bigger Screens */
+@media (min-width: 586px) and (max-width: 800px) {
+  .list-added-products {
+    gap: 8px;
+  }
+  .heading-of-list {
+    display: none;
+  }
+  .product-show-individual {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+  }
+  .ind-action-button {
+    position: absolute;
+    top: 26px;
+    left: 280px;
+  }
+}
+
+/* Tablet Screens */
+@media (min-width: 800px) and (max-width: 940px) {
+  .list-added-products {
+    gap: 8px;
+  }
+  .heading-of-list {
+    display: none;
+  }
+  .product-show-individual {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    position: relative;
   }
 }
