@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+@media (min-width: 370px) and (max-width: 400px) {
   .admin-login {
     padding: 180px 20px;
   }
@@ -59,6 +59,30 @@
   }
   .admin-container {
     width: 300px;
+  }
+  .admin-container input {
+    width: 230px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 370px) {
+  .admin-login {
+    padding: 180px 20px;
+  }
+  .admin-container {
+    width: 278px;
+  }
+  .admin-container input {
+    width: 230px;
+  }
+}
+
+@media (min-width: 586px) and (max-width: 767px) {
+  .admin-login {
+    padding: 110px 20px;
+  }
+  .admin-container {
+    width: 278px;
   }
   .admin-container input {
     width: 230px;
