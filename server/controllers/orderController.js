@@ -143,30 +143,6 @@ const verifyStripe = async (req, res) => {
   }
 };
 
-const placeOrderForApp = async (req, res) => {
-  try {
-    const { userId, items, amount, address } = req.body;
-
-    const orderData = {
-      userId,
-      items,
-      amount,
-      address,
-      paymentMethod: "COD",
-      payment: false,
-      date: Date.now(),
-    };
-    const newOrder = new orderModel(orderData);
-    await newOrder.save();
-
-    await userModel.findByIdAndUpdate(userId, { cartData: {} });
-    res.json({ success: true, message: "Order placed" });
-  } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: error.message });
-  }
-};
-
 export {
   placeOrder,
   placeOrderStripe,
@@ -174,5 +150,4 @@ export {
   userOrders,
   verifyStripe,
   updateStatus,
-  placeOrderForApp
 };
