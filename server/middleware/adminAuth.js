@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
+import adminConfig from "../admin";
 
-const admin_email = process.env.ADMIN_EMAIL;
-const admin_password = process.env.ADMIN_PASSWORD;
+const admin_email = adminConfig.email;
+const admin_password = adminConfig.password;
 
 const adminAuth = async (req, res, next) => {
   try {
