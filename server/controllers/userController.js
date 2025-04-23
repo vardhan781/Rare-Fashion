@@ -2,10 +2,9 @@ import userModel from "../models/userModel.js";
 import valaditor from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import adminConfig from "../admin.js";
 
-const admin_email = adminConfig.email;
-const admin_password = adminConfig.password;
+const admin_email = process.env.ADMIN_EMAIL;
+const admin_password = process.env.ADMIN_PASSWORD;
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
@@ -95,7 +94,10 @@ const registerUser = async (req, res) => {
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (email === admin_email && password === admin_password) {
+    if (
+      email === admin_email &&
+      password === admin_password
+    ) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({ success: true, token });
     } else {
