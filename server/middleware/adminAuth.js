@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
-const admin_email = "anjali@rarefashion.in";
-const admin_password = "12345678";
+const admin_email = process.env.ADMIN_EMAIL;
+const admin_password = process.env.ADMIN_PASSWORD;
 
 const adminAuth = async (req, res, next) => {
   try {

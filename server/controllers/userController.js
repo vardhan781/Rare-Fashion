@@ -3,8 +3,8 @@ import valaditor from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const admin_email = "anjali@rarefashion.in";
-const admin_password = "12345678";
+const admin_email = process.env.ADMIN_EMAIL;
+const admin_password = process.env.ADMIN_PASSWORD;
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
