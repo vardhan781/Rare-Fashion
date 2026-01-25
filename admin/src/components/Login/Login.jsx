@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { backendUrl } from "../../App";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import Loader from "../Loader/Loader";
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
+      setLoading(true);
+
       const response = await axios.post(backendUrl + "/api/user/admin", {
         email,
         password,
@@ -25,8 +29,13 @@ const Login = ({ setToken }) => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loader />;
+
   return (
     <form onSubmit={onSubmitHandler} className="admin-login">
       <div className="admin-container">

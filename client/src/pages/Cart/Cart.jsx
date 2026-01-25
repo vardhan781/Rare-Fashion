@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 import { ShopContext } from "../../Context/ShopContext";
 import { assets } from "../../assets/assets";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const Cart = () => {
   const {
@@ -15,6 +16,8 @@ const Cart = () => {
     token,
     totalAmount,
     deliveryCharge,
+    productLoading,
+    cartLoading,
   } = useContext(ShopContext);
 
   const navigate = useNavigate();
@@ -38,13 +41,17 @@ const Cart = () => {
     }
   }, [cartItems, products]);
 
+  if (productLoading || cartLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="cart-page">
       <h1>Your Cart</h1>
       <div className="cart-products">
         {cartData.map((item, index) => {
           const productData = products.find(
-            (product) => product._id === item._id
+            (product) => product._id === item._id,
           );
           return (
             <div key={index} className="single-cart-product">
@@ -67,7 +74,7 @@ const Cart = () => {
                     : updateQuantity(
                         item._id,
                         item.size,
-                        Number(e.target.value)
+                        Number(e.target.value),
                       )
                 }
                 type="number"

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const Verify = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Verify = () => {
       const response = await axios.post(
         backendUrl + "/api/order/verifyStripe",
         { userId, orderId },
-        { headers: { token }, params: { success } }
+        { headers: { token }, params: { success } },
       );
       if (response.data.success) {
         setCartItems({});

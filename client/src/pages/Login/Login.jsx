@@ -4,9 +4,10 @@ import "./Login.css";
 import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import OtpVerify from "../OtpVerify/OtpVerify";
 import emailjs from "@emailjs/browser";
+import Loader from "../../components/Loader/Loader";
 
 const Login = () => {
   const handleGoBack = () => {
@@ -21,11 +22,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [generatedOtp, setGeneratedOtp] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
+      setLoading(true);
       if (currState === "Sign Up") {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         setGeneratedOtp(otp);
@@ -39,7 +42,7 @@ const Login = () => {
           "service_z9ppajx",
           "template_8xp29i9",
           templateParams,
-          "pqCz261Ss0EpuiGS2"
+          "pqCz261Ss0EpuiGS2",
         );
 
         const response = await axios.post(backendUrl + "/api/user/register", {
@@ -82,7 +85,7 @@ const Login = () => {
               "service_z9ppajx",
               "template_8xp29i9",
               templateParams,
-              "pqCz261Ss0EpuiGS2"
+              "pqCz261Ss0EpuiGS2",
             );
 
             await axios.post(backendUrl + "/api/user/resend-otp", {
@@ -95,6 +98,8 @@ const Login = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -108,6 +113,10 @@ const Login = () => {
       navigate(-1);
     }
   }, [token, navigate]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="login">

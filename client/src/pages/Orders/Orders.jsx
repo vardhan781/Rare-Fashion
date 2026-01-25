@@ -2,40 +2,56 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Orders.css";
 import { ShopContext } from "../../Context/ShopContext";
 import axios from "axios";
+import Loader from "../../components/Loader/Loader";
 
 const Orders = () => {
   const { currency, backendUrl, token } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const loadOrderData = async () => {
     try {
-      if (!token) {
-        return null;
-      }
+      if (!token) return;
+
+      setLoading(true);
+
       const response = await axios.post(
         backendUrl + "/api/order/userorders",
         {},
-        { headers: { token } }
+        { headers: { token } },
       );
+
       if (response.data.success) {
         let allOrdersItem = [];
-        response.data.orders.map((order) => {
-          order.items.map((item) => {
-            item["status"] = order.status;
-            item["payment"] = order.payment;
-            item["paymentMethod"] = order.paymentMethod;
-            item["date"] = order.date;
-            allOrdersItem.push(item);
+
+        response.data.orders.forEach((order) => {
+          order.items.forEach((item) => {
+            allOrdersItem.push({
+              ...item,
+              status: order.status,
+              payment: order.payment,
+              paymentMethod: order.paymentMethod,
+              date: order.date,
+            });
           });
         });
+
         setOrderData(allOrdersItem);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     loadOrderData();
   }, [token]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="order-page-main">

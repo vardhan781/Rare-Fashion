@@ -3,11 +3,15 @@ import "./List.css";
 import { assets } from "../../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../../App";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const List = ({ token }) => {
   const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const fetchlist = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
       if (response.data.success) {
@@ -18,14 +22,18 @@ const List = ({ token }) => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
   const removeProduct = async (id) => {
+    setLoading(true);
     try {
       const response = await axios.post(
         backendUrl + "/api/product/remove",
         { id },
-        { headers: { token } }
+        { headers: { token } },
       );
       if (response.data.success) {
         toast.success(response.data.message);
@@ -36,11 +44,16 @@ const List = ({ token }) => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchlist();
   }, []);
+
+  if (loading) return <Loader />;
 
   return (
     <div className="list-added-products">
@@ -52,9 +65,9 @@ const List = ({ token }) => {
         <b>Action</b>
       </div>
 
-      {list.map((item, index) => (
-        <div className="products-show-list">
-          <div className="product-show-individual" key={index}>
+      {list.map((item) => (
+        <div className="products-show-list" key={item._id}>
+          <div className="product-show-individual">
             <img className="ind-image-show" src={item.image} alt="" />
             <p className="ind-name-show">{item.name}</p>
             <p className="ind-category-show">{item.category}</p>

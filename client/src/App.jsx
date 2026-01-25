@@ -6,8 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import Collection from "./pages/Collection/Collection";
 import Product from "./pages/Product/Product";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "react-hot-toast";
 import Cart from "./pages/Cart/Cart";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
@@ -19,23 +18,7 @@ import Verify from "./pages/Verify/Verify";
 const App = () => {
   return (
     <div>
-      <ToastContainer
-        position="bottom-right"
-        hideProgressBar={true}
-        autoClose={3000}
-        newestOnTop={true}
-        style={{
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          color: "inherit",
-          fontSize: "14px",
-          padding: "0",
-          margin: "8px",
-          maxWidth: "200px",
-          textAlign: "left",
-          borderRadius: "10px",
-        }}
-      />
+      <Toaster />
 
       <Navbar />
       <Routes>

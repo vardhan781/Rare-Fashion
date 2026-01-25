@@ -4,7 +4,8 @@ import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const PlaceOrder = () => {
   const {
@@ -20,7 +21,7 @@ const PlaceOrder = () => {
 
   const navigate = useNavigate();
   const [method, setMethod] = useState("cod");
-
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,13 +42,14 @@ const PlaceOrder = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       let orderItems = [];
       for (const items in cartItems) {
         for (const item in cartItems[items]) {
           if (cartItems[items][item] > 0) {
             const itemInfo = structuredClone(
-              products.find((product) => product._id === items)
+              products.find((product) => product._id === items),
             );
             if (itemInfo) {
               itemInfo.size = item;
@@ -67,7 +69,7 @@ const PlaceOrder = () => {
           const response = await axios.post(
             backendUrl + "/api/order/place",
             orderData,
-            { headers: { token } }
+            { headers: { token } },
           );
           if (response.data.success) {
             setCartItems({});
@@ -82,7 +84,7 @@ const PlaceOrder = () => {
           const responseStripe = await axios.post(
             backendUrl + "/api/order/stripe",
             orderData,
-            { headers: { token } }
+            { headers: { token } },
           );
 
           if (responseStripe.data.success) {
@@ -98,8 +100,14 @@ const PlaceOrder = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <form onSubmit={onSubmitHandler} className="place-page">

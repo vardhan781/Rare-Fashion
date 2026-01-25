@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import emailjs from "@emailjs/browser";
 import "./OtpVerify.css";
 import { assets } from "../../assets/assets";
+import Loader from "../../components/Loader/Loader";
 
 const OtpVerify = ({ email, generatedOtp }) => {
   const [otp, setOtp] = useState("");
@@ -13,6 +14,7 @@ const OtpVerify = ({ email, generatedOtp }) => {
   const navigate = useNavigate();
   const [resendLoading, setResendLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
+  const [verifyLoading, setVerifyLoading] = useState(false);
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -31,6 +33,7 @@ const OtpVerify = ({ email, generatedOtp }) => {
 
   const handleVerify = async () => {
     try {
+      setVerifyLoading(true);
       const response = await axios.post(backendUrl + "/api/user/verify-otp", {
         email,
         otp,
@@ -46,6 +49,8 @@ const OtpVerify = ({ email, generatedOtp }) => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setVerifyLoading(false);
     }
   };
 
@@ -63,7 +68,7 @@ const OtpVerify = ({ email, generatedOtp }) => {
         "service_z9ppajx",
         "template_8xp29i9",
         templateParams,
-        "pqCz261Ss0EpuiGS2"
+        "pqCz261Ss0EpuiGS2",
       );
 
       await axios.post(backendUrl + "/api/user/resend-otp", {
@@ -79,6 +84,10 @@ const OtpVerify = ({ email, generatedOtp }) => {
       setResendLoading(false);
     }
   };
+
+  if (verifyLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="otp-verify">

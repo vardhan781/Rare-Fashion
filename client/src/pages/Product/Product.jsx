@@ -4,10 +4,12 @@ import { ShopContext } from "../../Context/ShopContext";
 import "./Product.css";
 import { assets } from "../../assets/assets";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts";
+import Loader from "../../components/Loader/Loader";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency, addToCart, productLoading, addToCartLoading } =
+    useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -25,6 +27,10 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
+
+  if (productLoading || addToCartLoading) {
+    return <Loader />;
+  }
 
   return productData ? (
     <>

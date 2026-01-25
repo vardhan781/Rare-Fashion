@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -84,7 +84,7 @@ const Navbar = () => {
                           navigate("orders");
                           setDropdown(false);
                         } else {
-                          toast.info("You are not logged in");
+                          toast.error("You are not logged in");
                           setDropdown(false);
                         }
                       }}
@@ -97,7 +97,7 @@ const Navbar = () => {
                           logOut();
                           setDropdown(false);
                         } else {
-                          toast.info("You are not logged in");
+                          toast.error("You are not logged in");
                           setDropdown(false);
                         }
                       }}

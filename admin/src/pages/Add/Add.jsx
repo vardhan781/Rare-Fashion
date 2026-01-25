@@ -3,7 +3,8 @@ import "./Add.css";
 import { assets } from "../../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../../App";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const Add = ({ token }) => {
   const [image, setImage] = useState(false);
@@ -13,10 +14,13 @@ const Add = ({ token }) => {
   const [sizes, setSizes] = useState([]);
   const [bestSeller, setBestSeller] = useState(false);
   const [price, setPrice] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
+
       const formData = new FormData();
       formData.append("name", name);
       formData.append("description", description);
@@ -29,9 +33,8 @@ const Add = ({ token }) => {
       const response = await axios.post(
         backendUrl + "/api/product/add",
         formData,
-        { headers: { token } }
+        { headers: { token } },
       );
-      console.log(response.data);
 
       if (response.data.success) {
         toast.success(response.data.message);
@@ -40,14 +43,19 @@ const Add = ({ token }) => {
         setPrice("");
         setImage(false);
         setBestSeller(false);
+        setSizes([]);
       } else {
         toast.error("Error Occured");
       }
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loader />;
 
   return (
     <form onSubmit={onSubmitHandler} className="adding-product">
@@ -107,7 +115,7 @@ const Add = ({ token }) => {
             setSizes((prev) =>
               prev.includes("S")
                 ? prev.filter((item) => item !== "S")
-                : [...prev, "S"]
+                : [...prev, "S"],
             )
           }
         >
@@ -124,7 +132,7 @@ const Add = ({ token }) => {
             setSizes((prev) =>
               prev.includes("M")
                 ? prev.filter((item) => item !== "M")
-                : [...prev, "M"]
+                : [...prev, "M"],
             )
           }
         >
@@ -141,7 +149,7 @@ const Add = ({ token }) => {
             setSizes((prev) =>
               prev.includes("L")
                 ? prev.filter((item) => item !== "L")
-                : [...prev, "L"]
+                : [...prev, "L"],
             )
           }
         >
@@ -158,7 +166,7 @@ const Add = ({ token }) => {
             setSizes((prev) =>
               prev.includes("XL")
                 ? prev.filter((item) => item !== "XL")
-                : [...prev, "XL"]
+                : [...prev, "XL"],
             )
           }
         >
@@ -175,7 +183,7 @@ const Add = ({ token }) => {
             setSizes((prev) =>
               prev.includes("XXL")
                 ? prev.filter((item) => item !== "XXL")
-                : [...prev, "XXL"]
+                : [...prev, "XXL"],
             )
           }
         >

@@ -4,9 +4,11 @@ import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import Fuse from "fuse.js";
+import Loader from "../../components/Loader/Loader";
 
 const Collection = () => {
-  const { products, category, toggleCategory } = useContext(ShopContext);
+  const { products, category, toggleCategory, productLoading } =
+    useContext(ShopContext);
   const [collection, setCollection] = useState([]);
   const [search, setSearch] = useState("");
   const [sortOption, setSortOption] = useState("preference");
@@ -29,7 +31,7 @@ const Collection = () => {
 
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
-        category.includes(item.category)
+        category.includes(item.category),
       );
     }
 
@@ -65,6 +67,10 @@ const Collection = () => {
     setCollection(products);
     setNoResults(false);
   }, [products]);
+
+  if (productLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="collect">

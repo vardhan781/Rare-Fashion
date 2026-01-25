@@ -4,22 +4,26 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { backendUrl } from "../../App";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { assets } from "../../assets/assets";
+import Loader from "../../components/Loader/Loader";
 
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchAllOrders = async () => {
-    if (!token) {
-      return null;
-    }
+    if (!token) return;
+
     try {
+      setLoading(true);
+
       const response = await axios.post(
         backendUrl + "/api/order/list",
         {},
-        { headers: { token } }
+        { headers: { token } },
       );
+
       if (response.data.success) {
         setOrders(response.data.orders.reverse());
       } else {
@@ -27,28 +31,38 @@ const Orders = ({ token }) => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const statusHandler = async (e, orderId) => {
     try {
+      setLoading(true);
+
       const response = await axios.post(
         backendUrl + "/api/order/status",
         { orderId, status: e.target.value },
-        { headers: { token } }
+        { headers: { token } },
       );
+
       if (response.data.success) {
         await fetchAllOrders();
       }
     } catch (error) {
       console.log(error);
-      toast.error(response.data.message);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchAllOrders();
   }, [token]);
+
+  if (loading) return <Loader />;
+
   return (
     <div className="admin-all-order">
       {orders.map((order, index) => (

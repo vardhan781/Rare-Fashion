@@ -7,13 +7,13 @@ import Add from "./pages/Add/Add";
 import List from "./pages/List/List";
 import Orders from "./pages/Orders/Orders";
 import Login from "./components/Login/Login";
-import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
   const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : ""
+    localStorage.getItem("token") ? localStorage.getItem("token") : "",
   );
 
   useEffect(() => {
@@ -22,23 +22,7 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer
-        position="bottom-right"
-        hideProgressBar={true}
-        autoClose={3000}
-        newestOnTop={true}
-        style={{
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          color: "inherit",
-          fontSize: "14px",
-          padding: "0",
-          margin: "8px",
-          maxWidth: "200px",
-          textAlign: "left",
-          borderRadius: "10px",
-        }}
-      />
+      <Toaster />
       {token === "" ? (
         <Login setToken={setToken} />
       ) : (
