@@ -2,8 +2,8 @@ import userModel from "../models/userModel.js";
 import valaditor from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import generateOTP from "../utils/generateOtp";
-import transporter from "../utils/sendMail";
+import generateOTP from "../utils/generateOtp.js";
+import transporter from "../utils/sendMail.js";
 
 const admin_email = process.env.ADMIN_EMAIL;
 const admin_password = process.env.ADMIN_PASSWORD;
