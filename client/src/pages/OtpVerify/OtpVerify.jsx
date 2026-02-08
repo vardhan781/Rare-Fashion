@@ -3,96 +3,69 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
-import emailjs from "@emailjs/browser";
 import "./OtpVerify.css";
 import { assets } from "../../assets/assets";
 import Loader from "../../components/Loader/Loader";
 
-const OtpVerify = ({ email, generatedOtp }) => {
+const OtpVerify = ({ email }) => {
   const [otp, setOtp] = useState("");
+  const [timeLeft, setTimeLeft] = useState(120);
+  const [loading, setLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+
   const { backendUrl, setToken } = useContext(ShopContext);
   const navigate = useNavigate();
-  const [resendLoading, setResendLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60);
-  const [verifyLoading, setVerifyLoading] = useState(false);
 
   useEffect(() => {
-    if (timeLeft > 0) {
-      const timer = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
+    if (timeLeft <= 0) return;
+    const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
+    return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
-  };
-
   const handleVerify = async () => {
+    setLoading(true);
     try {
-      setVerifyLoading(true);
-      const response = await axios.post(backendUrl + "/api/user/verify-otp", {
+      const res = await axios.post(backendUrl + "/api/user/verify-otp", {
         email,
         otp,
       });
 
-      if (response.data.success) {
-        setToken(response.data.token);
-        localStorage.setItem("token", response.data.token);
-        toast.success("OTP verified");
+      if (res.data.success) {
+        setToken(res.data.token);
+        localStorage.setItem("token", res.data.token);
+        toast.success("Verified successfully");
         navigate(-1);
       } else {
-        toast.error(response.data.message);
+        toast.error(res.data.message);
       }
-    } catch (error) {
-      toast.error(error.message);
+    } catch {
+      toast.error("Verification failed");
     } finally {
-      setVerifyLoading(false);
+      setLoading(false);
     }
   };
 
   const handleResend = async () => {
     setResendLoading(true);
-    setTimeLeft(60);
+    setTimeLeft(120);
+
     try {
-      const otp = Math.floor(100000 + Math.random() * 900000).toString();
-      const templateParams = {
-        to_email: email,
-        otp: otp,
-      };
-
-      await emailjs.send(
-        "service_z9ppajx",
-        "template_8xp29i9",
-        templateParams,
-        "pqCz261Ss0EpuiGS2",
-      );
-
-      await axios.post(backendUrl + "/api/user/resend-otp", {
-        email,
-        otp: otp,
-      });
-
-      toast.success("OTP Resent Successfully");
-    } catch (error) {
+      await axios.post(backendUrl + "/api/user/resend-otp", { email });
+      toast.success("OTP resent to email");
+    } catch {
       toast.error("Failed to resend OTP");
-      console.error("Resend OTP error:", error);
     } finally {
       setResendLoading(false);
     }
   };
 
-  if (verifyLoading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
 
   return (
     <div className="otp-verify">
       <div className="otp-container">
         <h2>Verify OTP</h2>
+
         <div className="otp-input-field">
           <div className="otp-img-set">
             <img src={assets.otp} alt="" />
@@ -105,21 +78,15 @@ const OtpVerify = ({ email, generatedOtp }) => {
           </div>
           <button onClick={handleVerify}>Verify</button>
         </div>
-        {timeLeft > 0 ? (
-          <p>OTP expiring in: {formatTime(timeLeft)}</p>
-        ) : (
-          <p>OTP Expired.</p>
-        )}
-        <button
-          className="otp-resend-button"
-          onClick={handleResend}
-          disabled={resendLoading || timeLeft > 0}
-        >
-          {resendLoading ? "Resending...." : "Resend OTP"}
-        </button>
-        <p className="otp-trouble">
-          Having trouble receiving the OTP? Click resend.
+
+        <p>
+          OTP expires in {Math.floor(timeLeft / 60)}:
+          {String(timeLeft % 60).padStart(2, "0")}
         </p>
+
+        <button onClick={handleResend} disabled={timeLeft > 0 || resendLoading}>
+          {resendLoading ? "Resending" : "Resend OTP"}
+        </button>
       </div>
     </div>
   );

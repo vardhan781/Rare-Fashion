@@ -6,134 +6,89 @@ import { ShopContext } from "../../Context/ShopContext";
 import axios from "axios";
 import toast from "react-hot-toast";
 import OtpVerify from "../OtpVerify/OtpVerify";
-import emailjs from "@emailjs/browser";
 import Loader from "../../components/Loader/Loader";
 
 const Login = () => {
-  const handleGoBack = () => {
-    navigate(-1);
-  };
-
-  const [currState, setCurrState] = useState("Login");
   const navigate = useNavigate();
   const { token, setToken, backendUrl } = useContext(ShopContext);
+
+  const [currState, setCurrState] = useState("Login");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [otpSent, setOtpSent] = useState(false);
-  const [generatedOtp, setGeneratedOtp] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const onSubmitHandler = async (event) => {
-    event.preventDefault();
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
     try {
-      setLoading(true);
       if (currState === "Sign Up") {
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
-        setGeneratedOtp(otp);
-
-        const templateParams = {
-          to_email: email,
-          otp: otp,
-        };
-
-        await emailjs.send(
-          "service_z9ppajx",
-          "template_8xp29i9",
-          templateParams,
-          "pqCz261Ss0EpuiGS2",
-        );
-
-        const response = await axios.post(backendUrl + "/api/user/register", {
+        const res = await axios.post(backendUrl + "/api/user/register", {
           name,
           email,
           password,
-          otp: otp,
         });
 
-        if (response.data.success) {
-          toast.success(response.data.message);
+        if (res.data.success) {
+          toast.success("OTP sent to email");
           setOtpSent(true);
         } else {
-          toast.error(response.data.message);
+          toast.error(res.data.message);
         }
       } else {
-        const response = await axios.post(backendUrl + "/api/user/login", {
+        const res = await axios.post(backendUrl + "/api/user/login", {
           email,
           password,
         });
 
-        if (response.data.success) {
-          setToken(response.data.token);
-          localStorage.setItem("token", response.data.token);
+        if (res.data.success) {
+          setToken(res.data.token);
+          localStorage.setItem("token", res.data.token);
           toast.success("Logged In");
           navigate(-1);
         } else {
-          toast.error(response.data.message);
-          if (response.data.message === "Please Verify") {
-            const otp = Math.floor(100000 + Math.random() * 900000).toString();
-            setGeneratedOtp(otp);
+          toast.error(res.data.message);
+
+          if (res.data.message.includes("OTP")) {
             setOtpSent(true);
-
-            const templateParams = {
-              to_email: email,
-              otp: otp,
-            };
-
-            await emailjs.send(
-              "service_z9ppajx",
-              "template_8xp29i9",
-              templateParams,
-              "pqCz261Ss0EpuiGS2",
-            );
-
-            await axios.post(backendUrl + "/api/user/resend-otp", {
-              email,
-              otp: otp,
-            });
           }
         }
       }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
+    } catch (err) {
+      toast.error("Something went wrong");
+      console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (otpSent) {
-    }
-  }, [otpSent]);
-
-  useEffect(() => {
-    if (token) {
-      navigate(-1);
-    }
+    if (token) navigate(-1);
   }, [token, navigate]);
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
 
   return (
     <div className="login">
       {otpSent ? (
-        <OtpVerify email={email} generatedOtp={generatedOtp} />
+        <OtpVerify email={email} />
       ) : (
         <form onSubmit={onSubmitHandler} className="contain">
           <div className="head">
-            <h1>{currState === "Sign Up" ? "Sign Up" : "Login"}</h1>
-            <img onClick={handleGoBack} src={assets.cross_icon} alt="Go Back" />
+            <h1>{currState}</h1>
+            <img
+              src={assets.cross_icon}
+              alt="close"
+              onClick={() => navigate(-1)}
+            />
           </div>
 
           <div className="inputs">
-            {currState === "Sign Up" ? (
+            {currState === "Sign Up" && (
               <div className="detail">
                 <img src={assets.user} alt="" />
-
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -142,13 +97,10 @@ const Login = () => {
                   required
                 />
               </div>
-            ) : (
-              ""
             )}
 
             <div className="detail">
               <img src={assets.email} alt="" />
-
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -160,7 +112,6 @@ const Login = () => {
 
             <div className="detail">
               <img src={assets.password} alt="" />
-
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -172,21 +123,20 @@ const Login = () => {
           </div>
 
           <div className="subs">
-            <button>{currState === "Login" ? "Login" : "Sign Up"}</button> 
-            {currState === "Sign Up" ? (
-              <p>
-                Already a User ?
-                <span onClick={() => setCurrState("Login")}> Login here</span> 
-              </p>
-            ) : (
-              <p>
-                Don't have an Account ?
-                <span onClick={() => setCurrState("Sign Up")}>
-                  {" "}
-                  Sign Up Here
-                </span>
-              </p>
-            )}
+            <button>{currState}</button>
+            <p>
+              {currState === "Login" ? (
+                <>
+                  Don’t have an account?
+                  <span onClick={() => setCurrState("Sign Up")}> Sign Up</span>
+                </>
+              ) : (
+                <>
+                  Already a user?
+                  <span onClick={() => setCurrState("Login")}> Login</span>
+                </>
+              )}
+            </p>
           </div>
         </form>
       )}
