@@ -30,9 +30,10 @@
   margin-bottom: 2px;
   cursor: pointer;
 }
-.contact-link img {
+.contact-link svg {
   height: 21px;
   width: 21px;
+  color: #000;
 }
 .contact-method {
   display: flex;
@@ -44,7 +45,6 @@
   text-align: center;
 }
 
-/* Standar Screen Size */
 @media (min-width: 370px) and (max-width: 400px) {
   .contact-page h1 {
     font-size: 27px;
@@ -54,7 +54,6 @@
   }
 }
 
-/* Large Mobile Screen */
 @media (min-width: 401px) and (max-width: 586px) {
   .contact-page h1 {
     font-size: 27px;
@@ -64,7 +63,6 @@
   }
 }
 
-/* Small Screens */
 @media (min-width: 320px) and (max-width: 370px) {
   .contact-page h1 {
     font-size: 25px;
@@ -74,7 +72,6 @@
   }
 }
 
-/* Very Big Screens */
 @media (min-width: 1550px) and (max-width: 2500px) {
   .contact-page {
     font-size: larger;

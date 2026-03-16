@@ -6,19 +6,27 @@ import { assets } from "../../assets/assets";
 
 export const ProductItem = ({ id, name, price, bestseller, image }) => {
   const { currency } = useContext(ShopContext);
+
   return (
-    <Link className="display-product" to={`/product/${id}`}>
-      <div className="display-section">
-        <img src={image} alt="" />
+    <Link className="product-card" to={`/product/${id}`}>
+      <div className="product-image-container">
+        <img src={image} alt={name} className="product-image" loading="lazy" />
+        {bestseller && (
+          <div className="bestseller-badge">
+            <img src={assets.bestseller} alt="Bestseller" />
+          </div>
+        )}
+        <div className="quick-view">
+          <span>View Product</span>
+        </div>
       </div>
-      <div className="product-item-other-info">
-        <p className="product-name">{name}</p>
-        <div className="selling-usp">
+      <div className="product-info">
+        <h3 className="product-name">{name}</h3>
+        <div className="price-section">
           <p className="product-price">
-            {currency}
-            {price}
+            <span className="currency">{currency}</span>
+            <span className="amount">{price.toLocaleString()}</span>
           </p>
-          {bestseller && <img src={assets.bestseller} alt="" />}
         </div>
       </div>
     </Link>

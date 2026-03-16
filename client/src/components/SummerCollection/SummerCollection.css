@@ -12,6 +12,8 @@
 }
 .ads {
   display: flex;
+  border: 1px solid var(--primary-pink);
+  border-radius: 10px;
   height: 515px;
   padding: 40px;
   gap: 30px;
@@ -48,8 +50,6 @@
   cursor: pointer;
 }
 
-/* Standard Phone Screen */
-
 @media (min-width: 370px) and (max-width: 400px) {
   .summer {
     margin-top: 173px;
@@ -74,7 +74,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;
@@ -89,7 +89,6 @@
   }
 }
 
-/* Larger Screen Phones */
 @media (min-width: 401px) and (max-width: 587px) {
   .summer {
     margin-top: -110px;
@@ -116,7 +115,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;
@@ -130,8 +129,6 @@
     left: -25px;
   }
 }
-
-/* Small Screen Phones */
 
 @media (min-width: 320px) and (max-width: 370px) {
   .summer {
@@ -159,7 +156,7 @@
     max-height: 368px;
     margin-top: -24px;
     margin-left: -21px;
-    border-radius: 0%;
+    border-radius: 10px;
   }
   .ad-path {
     position: absolute;
@@ -174,7 +171,6 @@
   }
 }
 
-/* Smaller Tablets (Landscape mode tablet) */
 @media (min-width: 587px) and (max-width: 767px) {
   .summer {
     margin-top: -125px;
@@ -218,8 +214,6 @@
     left: -25px;
   }
 }
-
-/* Standard Tablets (Smaller Laptops) */
 
 @media (min-width: 767px) and (max-width: 991px) {
   .summer {
@@ -265,7 +259,6 @@
   }
 }
 
-/* Standard Desktop Screens */
 @media (min-width: 991px) and (max-width: 1470px) {
   .summer {
     margin-top: 0px;
@@ -305,10 +298,10 @@
   }
 }
 
-/* Very Big Screens */
-@media (min-width: 1770px) and (max-width: 2500px) {
+@media (min-width: 1770px) {
   .ads {
     padding: 40px 280px;
+    justify-content: center;
   }
 }
 

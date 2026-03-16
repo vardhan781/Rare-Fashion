@@ -2,7 +2,7 @@
   margin: 30px;
 }
 .hero-img img {
-  width: 1460px;
+  width: 100%;
   height: 700px;
   position: relative;
   border-radius: 10px;
@@ -27,7 +27,6 @@
   font-weight: 600;
 }
 
-/* Standard Phones */
 @media (min-width: 370px) and (max-width: 400px) {
   .hero {
     margin: 15px;
@@ -55,8 +54,6 @@
   }
 }
 
-/* Larger Screen Phones */
-
 @media (min-width: 401px) and (max-width: 587px) {
   .hero {
     margin: 15px 20px;
@@ -70,7 +67,7 @@
   .hero-img img {
     width: 385px;
     height: 255px;
-    border-radius: 0;
+    border-radius: 5px;
   }
 
   .hero h3 {
@@ -94,8 +91,6 @@
   }
 }
 
-/* Small Screen Phones */
-
 @media (min-width: 320px) and (max-width: 370px) {
   .hero {
     margin: 15px 20px;
@@ -109,7 +104,7 @@
   .hero-img img {
     width: 385px;
     height: 255px;
-    border-radius: 0;
+    border-radius: 5px;
   }
 
   .hero h3 {
@@ -137,7 +132,7 @@
   .hero-img img {
     width: 485px;
     height: 255px;
-    border-radius: 0;
+    border-radius: 5px;
   }
   .hero h3 {
     right: 214px;
@@ -147,7 +142,6 @@
   }
 }
 
-/* Smaller Tablets (Landscape mode tablet) */
 @media (min-width: 587px) and (max-width: 767px) {
   .hero {
     margin: 15px 20px;
@@ -185,7 +179,7 @@
     top: -415px;
   }
 }
-/* Standard i-Pads */
+
 @media (min-width: 767px) and (max-width: 991px) {
   .hero {
     margin: 15px 20px;
@@ -224,7 +218,6 @@
   }
 }
 
-/* Big Screens */
 @media (min-width: 991px) and (max-width: 1250px) {
   .hero {
     margin: 30px;
@@ -256,10 +249,9 @@
   }
 }
 
-/* Very Big Screens */
-@media (min-width: 1515px) and (max-width: 2500px) {
+@media (min-width: 1600px) {
   .hero-img img {
-    width: 2500px;
-    height: 880px;
+    width: 100%;
+    height: 950px;
   }
 }

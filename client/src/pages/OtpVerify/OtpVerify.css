@@ -1,128 +1,275 @@
-.otp-verify {
-  padding: 50px 0px;
-  width: 100%;
-}
-.otp-container {
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 25px 23px;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: start;
-}
-.otp-container h2 {
-  background-color: transparent;
-  color: #ff5a5a;
-  font-size: 25px;
-  font-weight: 600;
-}
-.otp-input-field {
-  display: flex;
-  gap: 56px;
-  background: transparent;
-}
-.otp-img-set input {
-  padding: 5px 12px;
-  border: 1px solid #ff5a5a;
-  border-radius: 15px;
-  outline: none;
-  color: #383838;
-}
-.otp-input-field button {
-  background: transparent;
-  padding: 3px 10px;
-  background-color: #ff5a5a;
-  width: 90px;
-  border-radius: 20px;
-  color: #fff;
-  cursor: pointer;
-}
-.otp-container p {
-  background: transparent;
-  color: #3d3d3d;
-}
-.otp-resend-button {
-  background: transparent;
-  padding: 3px 10px;
-  background-color: #ff5a5a;
-  width: 120px;
-  border-radius: 20px;
-  color: #fff;
-  cursor: pointer;
-}
-.otp-trouble {
-  color: #636363;
-  margin-top: 10px;
-}
-.otp-img-set img {
-  background: transparent;
-  height: 30px;
-  width: 30px;
-}
-.otp-img-set {
+.otp-verification-screen {
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  background-color: transparent;
-  gap: 7px;
+  justify-content: center;
+  padding: 20px;
+  background: var(--bg-primary);
 }
 
-/* Standard Screen */
-@media (min-width: 370px) and (max-width: 400px) {
-  .otp-container {
-    max-width: 350px;
-  }
-  .otp-input-field {
-    gap: 36px;
-  }
-  .otp-img-set input {
-    width: 150px;
-  }
-  .otp-input-field button {
-    width: 75px;
+.otp-verification-container {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.otp-verification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.otp-back-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.otp-back-button:hover {
+  background: var(--secondary-pink);
+  color: var(--primary-pink);
+}
+
+.otp-verification-title {
+  font-size: 24px;
+  color: var(--primary-pink-dark);
+  font-weight: 700;
+  margin: 0;
+}
+
+.otp-header-spacer {
+  width: 36px;
+}
+
+.otp-verification-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--secondary-pink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--primary-pink);
+}
+
+.otp-verification-info {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.otp-email-text {
+  color: var(--primary-pink);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.otp-input-container {
+  margin-bottom: 25px;
+}
+
+.otp-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.otp-input-icon {
+  position: absolute;
+  left: 15px;
+  color: var(--primary-pink);
+  z-index: 1;
+}
+
+.otp-code-input {
+  width: 100%;
+  padding: 14px 20px 14px 45px;
+  border: 2px solid var(--border-light);
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 8px;
+  transition: all 0.2s;
+  background: white;
+}
+
+.otp-code-input:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+}
+
+.otp-code-input::placeholder {
+  color: var(--text-secondary);
+  letter-spacing: normal;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.otp-timer-section {
+  margin-bottom: 25px;
+}
+
+.otp-timer-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.otp-timer-count {
+  font-weight: 600;
+  color: var(--primary-pink);
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.otp-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.otp-verify-button {
+  background: var(--primary-pink);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.otp-verify-button:hover:not(:disabled) {
+  background: var(--primary-pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
+.otp-verify-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.otp-resend-button {
+  background: none;
+  border: 1px solid var(--border-light);
+  color: var(--primary-pink);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.otp-resend-button:hover:not(:disabled) {
+  background: var(--secondary-pink);
+  border-color: var(--primary-pink);
+}
+
+.otp-resend-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.otp-spinning {
+  animation: otpSpin 1s linear infinite;
+}
+
+@keyframes otpSpin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* Large Screen */
-@media (min-width: 401px) and (max-width: 586px) {
-  .otp-container {
-    max-width: 350px;
+.otp-verification-note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .otp-verification-container {
+    padding: 25px;
   }
-  .otp-input-field {
-    gap: 36px;
-  }
-  .otp-img-set input {
-    width: 150px;
-  }
-  .otp-input-field button {
-    width: 75px;
+
+  .otp-verification-title {
+    font-size: 22px;
   }
 }
 
-/* Small Screen */
-@media (min-width: 320px) and (max-width: 370px) {
-  .otp-container {
-    max-width: 350px;
+@media (max-width: 480px) {
+  .otp-verification-screen {
+    padding: 15px;
   }
-  .otp-input-field {
-    gap: 36px;
+
+  .otp-verification-container {
+    padding: 20px;
+    border-radius: 12px;
   }
-  .otp-img-set input {
-    width: 150px;
+
+  .otp-verification-icon {
+    width: 70px;
+    height: 70px;
   }
-  .otp-input-field button {
-    width: 75px;
+
+  .otp-verification-icon svg {
+    width: 32px;
+    height: 32px;
   }
-  .otp-input-field {
-    gap: 10px;
+
+  .otp-code-input {
+    padding: 12px 20px 12px 42px;
+    font-size: 16px;
+    letter-spacing: 6px;
   }
-  .otp-container {
-    max-width: 300px;
+
+  .otp-input-icon {
+    left: 12px;
   }
-  .otp-img-set input {
-    width: 130px;
+
+  .otp-verify-button,
+  .otp-resend-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .otp-verification-container {
+    padding: 16px;
+  }
+
+  .otp-verification-title {
+    font-size: 20px;
+  }
+
+  .otp-verification-info {
+    font-size: 14px;
   }
 }

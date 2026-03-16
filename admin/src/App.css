@@ -1,48 +1,49 @@
 .app-main-content {
   display: flex;
+  min-height: calc(100vh - 80px);
 }
+
 .app-left-side {
-  width: 292px;
-  border-right: 1px solid black;
+  width: 220px;
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  height: calc(100vh - 80px);
 }
+
 .app-right-side {
-  padding: 40px;
+  flex: 1;
+  padding: 30px;
+  background: white;
+  min-height: calc(100vh - 80px);
+  margin-left: 220px;
 }
 
-/* Standard Screen */
-@media (max-width: 400px) {
+@media (max-width: 1024px) {
+  .app-right-side {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
   .app-left-side {
-    width: 85px;
+    width: 70px;
   }
+
   .app-right-side {
     padding: 20px;
-    overflow-x: hidden;
+    margin-left: 70px;
   }
 }
 
-/* Large Mobile Screen */
-@media (min-width: 401px) and (max-width: 586px) {
+@media (max-width: 480px) {
   .app-left-side {
-    width: 85px;
+    width: 60px;
   }
-  .app-right-side {
-    padding: 20px;
-    overflow-x: hidden;
-  }
-}
 
-/* Bigger Screens */
-@media (min-width: 586px) and (max-width: 800px) {
   .app-right-side {
-    padding: 20px;
-    overflow-x: hidden;
-  }
-}
-
-/* Tablet Screens */
-@media (min-width: 800px) and (max-width: 940px) {
-  .app-right-side {
-    padding: 20px;
-    overflow-x: hidden;
+    padding: 15px;
+    margin-left: 60px;
   }
 }

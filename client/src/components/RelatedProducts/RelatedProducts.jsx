@@ -3,7 +3,7 @@ import { ShopContext } from "../../Context/ShopContext";
 import { ProductItem } from "../ProductItem/ProductItem";
 import "./RelatedProducts.css";
 
-const RelatedProducts = ({ category }) => {
+const RelatedProducts = ({ category, currentProductId }) => {
   const { products } = useContext(ShopContext);
   const [related, setRelated] = useState([]);
 
@@ -18,17 +18,18 @@ const RelatedProducts = ({ category }) => {
 
   useEffect(() => {
     if (products.length > 0) {
-      let productsCopy = products.filter((item) => category === item.category);
+      let productsCopy = products.filter(
+        (item) => category === item.category && item._id !== currentProductId,
+      );
 
       const shuffledProducts = shuffleArray(productsCopy);
-
       setRelated(shuffledProducts.slice(0, 4));
     }
-  }, [products, category]);
+  }, [products, category, currentProductId]);
+
   return (
-    <div className="display-related">
-      <h1>You Might Also Like</h1>
-      <div className="display-related-products">
+    <div className="related-products-container">
+      <div className="related-products-grid">
         {related.map((item, index) => (
           <ProductItem
             key={index}

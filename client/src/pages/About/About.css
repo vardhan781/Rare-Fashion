@@ -51,7 +51,6 @@
   color: #35322f;
 }
 
-/* Standard Screen Size */
 @media (min-width: 370px) and (max-width: 400px) {
   .about-sec {
     overflow-x: hidden;
@@ -71,8 +70,6 @@
   }
 }
 
-/* Larger Mobile Screen */
-
 @media (min-width: 401px) and (max-width: 586px) {
   .about-sec {
     overflow-x: hidden;
@@ -88,8 +85,6 @@
     width: 313px;
   }
 }
-
-/* Smaller Mobile Screen */
 
 @media (min-width: 320px) and (max-width: 370px) {
   .about-sec {
@@ -129,7 +124,6 @@
   }
 }
 
-/* Bigger Screens */
 @media (min-width: 1650px) and (max-width: 2500px) {
   .about-sec img {
     width: 950px;

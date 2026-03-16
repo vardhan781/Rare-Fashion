@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader/Loader";
+import { CreditCard, Wallet, Lock, Truck } from "lucide-react";
 
 const PlaceOrder = () => {
   const {
@@ -33,10 +34,10 @@ const PlaceOrder = () => {
     country: "",
     phone: "",
   });
+
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-
     setFormData((data) => ({ ...data, [name]: value }));
   };
 
@@ -93,6 +94,7 @@ const PlaceOrder = () => {
           } else {
             toast.error("Error Occured in Stripe");
           }
+          break;
 
         default:
           break;
@@ -110,142 +112,226 @@ const PlaceOrder = () => {
   }
 
   return (
-    <form onSubmit={onSubmitHandler} className="place-page">
-      <div className="place-order-details">
-        <h1>Delivery Information</h1>
-        <div className="place-inputs">
-          <div className="place-double">
+    <form onSubmit={onSubmitHandler} className="place-order-container">
+      <div className="order-form-section">
+        <div className="form-header">
+          <h1 className="section-title">
+            <Truck size={24} />
+            Delivery Information
+          </h1>
+          <p className="section-subtitle">Please fill in your details</p>
+        </div>
+
+        <div className="form-inputs">
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                onChange={onChangeHandler}
+                placeholder="Enter your first name"
+                value={formData.firstName}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                onChange={onChangeHandler}
+                value={formData.lastName}
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="email">Email Address</label>
             <input
-              type="text"
-              name="firstName"
+              type="email"
+              id="email"
+              name="email"
               onChange={onChangeHandler}
-              placeholder="First Name"
-              value={formData.firstName}
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              onChange={onChangeHandler}
-              value={formData.lastName}
-              placeholder="Last Name"
+              value={formData.email}
+              placeholder="Enter your email"
               required
             />
           </div>
-          <input
-            type="email"
-            name="email"
-            onChange={onChangeHandler}
-            value={formData.email}
-            placeholder="Email address"
-            required
-          />
-          <input
-            type="text"
-            name="street"
-            onChange={onChangeHandler}
-            value={formData.street}
-            placeholder="Street"
-            required
-          />
-          <div className="place-double">
+
+          <div className="input-group">
+            <label htmlFor="street">Street Address</label>
             <input
               type="text"
-              name="city"
+              id="street"
+              name="street"
               onChange={onChangeHandler}
-              value={formData.city}
-              placeholder="City"
-              required
-            />
-            <input
-              type="text"
-              name="state"
-              onChange={onChangeHandler}
-              placeholder="State"
-              value={formData.state}
+              value={formData.street}
+              placeholder="Enter your street address"
               required
             />
           </div>
-          <div className="place-double">
+
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                onChange={onChangeHandler}
+                value={formData.city}
+                placeholder="Enter your city"
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                onChange={onChangeHandler}
+                placeholder="Enter your state"
+                value={formData.state}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="zipcode">Zip Code</label>
+              <input
+                type="number"
+                id="zipcode"
+                name="zipcode"
+                onChange={onChangeHandler}
+                value={formData.zipcode}
+                placeholder="Enter zip code"
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="country">Country</label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                onChange={onChangeHandler}
+                placeholder="Enter your country"
+                value={formData.country}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="number"
-              name="zipcode"
+              id="phone"
+              name="phone"
               onChange={onChangeHandler}
-              value={formData.zipcode}
-              placeholder="Zip Code"
-              required
-            />
-            <input
-              type="text"
-              name="country"
-              onChange={onChangeHandler}
-              placeholder="Country"
-              value={formData.country}
+              placeholder="Enter your phone number"
+              value={formData.phone}
               required
             />
           </div>
-          <input
-            type="number"
-            name="phone"
-            onChange={onChangeHandler}
-            placeholder="Number"
-            value={formData.phone}
-            required
-          />
         </div>
       </div>
-      <div className="place-total-details">
-        <div className="cart-total-head">
-          <h1>
-            <b>Order Summary</b>
-          </h1>
-          <img src={assets.bill} alt="" />
+
+      <div className="order-summary-section">
+        <div className="summary-card">
+          <div className="summary-header">
+            <h2 className="summary-title">Order Summary</h2>
+            <div className="summary-icon">
+              <img src={assets.bill} alt="Bill" />
+            </div>
+          </div>
+
+          <div className="summary-details">
+            <div className="summary-row">
+              <span>Subtotal</span>
+              <span>
+                {currency}
+                {getCartAmount().toLocaleString()}.00
+              </span>
+            </div>
+            <div className="summary-row">
+              <span>Delivery Charges</span>
+              <span>
+                {currency}
+                {deliveryCharge().toFixed(2)}
+              </span>
+            </div>
+            <div className="summary-total">
+              <span>Total Amount</span>
+              <span className="total-amount">
+                {currency}
+                {(getCartAmount() + deliveryCharge()).toFixed(2)}
+              </span>
+            </div>
+          </div>
+
+          <div className="payment-section">
+            <h3 className="payment-title">Select Payment Method</h3>
+            <div className="payment-options">
+              <div
+                className={`payment-option ${method === "cod" ? "selected" : ""}`}
+                onClick={() => setMethod("cod")}
+              >
+                <div className="option-radio">
+                  <div
+                    className={`radio-dot ${method === "cod" ? "active" : ""}`}
+                  ></div>
+                </div>
+                <div className="option-content">
+                  <div className="option-icon">
+                    <Wallet size={20} />
+                  </div>
+                  <div className="option-info">
+                    <h4>Cash on Delivery</h4>
+                    <p>Pay when you receive</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className={`payment-option ${method === "stripe" ? "selected" : ""}`}
+                onClick={() => setMethod("stripe")}
+              >
+                <div className="option-radio">
+                  <div
+                    className={`radio-dot ${method === "stripe" ? "active" : ""}`}
+                  ></div>
+                </div>
+                <div className="option-content">
+                  <div className="option-icon">
+                    <CreditCard size={20} />
+                  </div>
+                  <div className="option-info">
+                    <h4>Credit/Debit Card</h4>
+                    <p>Secure payment via Stripe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="security-note">
+            <Lock size={16} />
+            <span>Your payment is secure and encrypted</span>
+          </div>
+
+          <button type="submit" className="place-order-btn">
+            Place Order
+          </button>
         </div>
-        <div className="cart-amount-detail">
-          <div className="amt">
-            <p>Subtotal</p>
-            <p>
-              {getCartAmount()}.00 {currency}
-            </p>
-          </div>
-          <div className="amt">
-            <p>Delivery Charges</p>
-            <p>
-              {deliveryCharge()}.00 {currency}
-            </p>
-          </div>
-          <div className="amt">
-            <p>
-              <b>Total</b>
-            </p>
-            <p>
-              <b>
-                {(getCartAmount() + deliveryCharge()).toFixed(2)} {currency}
-              </b>
-            </p>
-          </div>
-        </div>
-        <div className="payment-option-buttons">
-          <div onClick={() => setMethod("cod")} className="single-option">
-            <p
-              className={`option-selection ${
-                method === "cod" ? "option-payment-selected" : ""
-              }`}
-            ></p>
-            <img src={assets.cod} alt="" />
-            <p className="name-of-option">COD</p>
-          </div>
-          <div onClick={() => setMethod("stripe")} className="single-option">
-            <p
-              className={`option-selection ${
-                method === "stripe" ? "option-payment-selected" : ""
-              }`}
-            ></p>
-            <img src={assets.stripe} alt="" />
-            <p className="name-of-option">Stripe</p>
-          </div>
-        </div>
-        <button type="submit">Place Order</button>
       </div>
     </form>
   );

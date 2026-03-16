@@ -1,90 +1,127 @@
-.admin-login {
-  padding: 200px;
-}
-.admin-container {
+.login-page {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  border: 1px solid #242424;
-  width: 400px;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 10px;
-  padding: 20px 4px;
+  justify-content: center;
+  padding: 20px;
+  background: var(--bg-primary);
 }
-.admin-container h1 {
+
+.login-form {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.08);
+  border: 1px solid #fbcfe8;
+}
+
+.login-header {
   text-align: center;
-  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  font-size: 28px;
+  color: #ec4899;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: #ff6161;
 }
-.admin-container input {
-  margin-top: 7px;
-  width: 300px;
-  align-items: center;
-  background-color: #fff;
+
+.login-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ec4899;
+  opacity: 0.7;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #fbcfe8;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fdf2f8;
+  transition: all 0.2s;
+}
+
+.input-field input:focus {
   outline: none;
-  padding: 4px 10px;
-  border-radius: 7px;
-  color: #303030;
+  border-color: #ec4899;
+  background: white;
+  box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.1);
 }
-.admin-container input[type="text"] {
-  color: #303030;
+
+.input-field input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
-.admin-container button {
-  background-color: #ff6161;
-  padding: 4px 10px;
-  color: #fff;
-  border-radius: 6px;
-  margin-top: 10px;
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ec4899;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
 }
 
-@media (min-width: 370px) and (max-width: 400px) {
-  .admin-login {
-    padding: 180px 20px;
-  }
-  .admin-container {
-    width: 300px;
-  }
-  .admin-container input {
-    width: 230px;
-  }
+.login-btn:hover:not(:disabled) {
+  background: #db2777;
 }
 
-@media (min-width: 401px) and (max-width: 586px) {
-  .admin-login {
-    padding: 180px 20px;
-  }
-  .admin-container {
-    width: 300px;
-  }
-  .admin-container input {
-    width: 230px;
-  }
+.login-btn:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
-@media (min-width: 320px) and (max-width: 370px) {
-  .admin-login {
-    padding: 180px 20px;
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 16px;
   }
-  .admin-container {
-    width: 278px;
+
+  .login-form {
+    padding: 32px 24px;
   }
-  .admin-container input {
-    width: 230px;
+
+  .login-header h1 {
+    font-size: 24px;
   }
 }
 
-@media (min-width: 586px) and (max-width: 767px) {
-  .admin-login {
-    padding: 180px 20px;
+@media (max-width: 360px) {
+  .login-form {
+    padding: 24px 20px;
   }
-  .admin-container {
-    width: 278px;
+
+  .input-field input {
+    padding: 10px 10px 10px 36px;
   }
-  .admin-container input {
-    width: 230px;
+
+  .input-icon {
+    left: 10px;
+    transform: translateY(-50%) scale(0.9);
   }
 }

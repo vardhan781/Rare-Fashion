@@ -5,6 +5,7 @@ import { ShopContext } from "../../Context/ShopContext";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import Fuse from "fuse.js";
 import Loader from "../../components/Loader/Loader";
+import { Search, ChevronDown, Filter, X } from "lucide-react";
 
 const Collection = () => {
   const { products, category, toggleCategory, productLoading } =
@@ -13,7 +14,22 @@ const Collection = () => {
   const [search, setSearch] = useState("");
   const [sortOption, setSortOption] = useState("preference");
   const [noResults, setNoResults] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
   const searchInputRef = useRef(null);
+  const sortRef = useRef(null);
+
+  const sortOptions = [
+    { value: "preference", label: "Preference" },
+    { value: "high-low", label: "Price: High to Low" },
+    { value: "low-high", label: "Price: Low to High" },
+  ];
+
+  const categories = [
+    { value: "Casual", label: "Casual" },
+    { value: "Denim", label: "Denim" },
+    { value: "Formal", label: "Formal" },
+    { value: "Dresses", label: "Dresses" },
+  ];
 
   const applyFilter = () => {
     let productsCopy = products.slice();
@@ -42,22 +58,56 @@ const Collection = () => {
     }
 
     setCollection(productsCopy);
-    setNoResults(productsCopy.length === 0 && search !== "");
+    setNoResults(productsCopy.length === 0);
   };
 
-  const handleSort = (e) => {
-    setSortOption(e.target.value);
+  const handleSortSelect = (value) => {
+    setSortOption(value);
+    setIsSortOpen(false);
   };
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
+  const clearSearch = () => {
+    setSearch("");
+    searchInputRef.current?.focus();
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      searchInputRef.current.blur();
+      searchInputRef.current?.blur();
     }
   };
+
+  const handleClearFilters = () => {
+    const checkboxes = document.querySelectorAll(
+      '.category-checkbox input[type="checkbox"]',
+    );
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkbox.click();
+      }
+    });
+    setSearch("");
+    setSortOption("preference");
+  };
+
+  const getSelectedCount = () => {
+    return category.length;
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sortRef.current && !sortRef.current.contains(event.target)) {
+        setIsSortOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     applyFilter();
@@ -72,91 +122,133 @@ const Collection = () => {
     return <Loader />;
   }
 
+  const selectedSort = sortOptions.find((opt) => opt.value === sortOption);
+
   return (
     <div className="collect">
-      {/* Left Sec */}
+      {/* Left Section */}
       <div className="left-collect">
-        <div className="categories">
-          <h1>Categories</h1>
-          <div className="cats">
-            <div className="name-cats">
-              <input
-                value={"Casual"}
-                type="checkbox"
-                onChange={toggleCategory}
-              />
-              <p>Casual</p>
-            </div>
+        <div className="filter-card">
+          <div className="filter-header">
+            <h3>
+              <Filter size={18} /> Categories
+            </h3>
+            {getSelectedCount() > 0 && (
+              <button className="clear-categories" onClick={handleClearFilters}>
+                Clear
+              </button>
+            )}
+          </div>
 
-            <div className="name-cats">
-              <input
-                value={"Denim"}
-                type="checkbox"
-                onChange={toggleCategory}
-              />
-              <p>Denim</p>
-            </div>
+          <div className="category-list">
+            {categories.map((cat) => (
+              <label key={cat.value} className="category-checkbox">
+                <input
+                  type="checkbox"
+                  value={cat.value}
+                  checked={category.includes(cat.value)}
+                  onChange={toggleCategory}
+                />
+                <span className="custom-checkbox">
+                  {category.includes(cat.value) && (
+                    <div className="check-icon">✓</div>
+                  )}
+                </span>
+                <span className="category-label">{cat.label}</span>
+              </label>
+            ))}
+          </div>
 
-            <div className="name-cats">
-              <input
-                value={"Formal"}
-                type="checkbox"
-                onChange={toggleCategory}
-              />
-              <p>Formal</p>
-            </div>
+          <div className="sort-section">
+            <h3>Sort By</h3>
+            <div className="custom-select" ref={sortRef}>
+              <button
+                className="select-trigger"
+                onClick={() => setIsSortOpen(!isSortOpen)}
+              >
+                <span className="sort-selected">{selectedSort.label}</span>
+                <ChevronDown
+                  size={16}
+                  className={`chevron ${isSortOpen ? "rotate" : ""}`}
+                />
+              </button>
 
-            <div className="name-cats">
-              <input
-                value={"Dresses"}
-                type="checkbox"
-                onChange={toggleCategory}
-              />
-              <p>Dresses</p>
+              {isSortOpen && (
+                <div className="select-dropdown">
+                  {sortOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      className={`select-option ${sortOption === option.value ? "selected" : ""}`}
+                      onClick={() => handleSortSelect(option.value)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-          <h1>Sort By</h1>
-          <select value={sortOption} onChange={handleSort}>
-            <option value="preference">Preference</option>
-            <option value="high-low">High To Low</option>
-            <option value="low-high">Low To High</option>
-          </select>
         </div>
       </div>
-      {/* Right Sec */}
+
+      {/* Right Section */}
       <div className="right-collect">
-        <div className="search-box">
-          <img src={assets.search} alt="" />
-          <input
-            ref={searchInputRef}
-            value={search}
-            onChange={handleSearchChange}
-            onKeyDown={handleKeyDown}
-            type="text"
-            placeholder="Find Your Fashion Here!"
-            maxLength="50"
-          />
+        <div className="search-section">
+          <div className="search-box">
+            <Search size={20} className="search-icon" />
+            <input
+              ref={searchInputRef}
+              value={search}
+              onChange={handleSearchChange}
+              onKeyDown={handleKeyDown}
+              type="text"
+              placeholder="Find your perfect outfit..."
+              maxLength="50"
+            />
+            {search && (
+              <button className="clear-search" onClick={clearSearch}>
+                <X size={18} />
+              </button>
+            )}
+          </div>
+
+          <div className="results-info">
+            <p>
+              Showing <span className="count">{collection.length}</span>{" "}
+              products
+              {search && (
+                <>
+                  {" "}
+                  for "<span className="search-term">{search}</span>"
+                </>
+              )}
+            </p>
+          </div>
         </div>
-        {/* Rendering Products From Product Item */}
-        <div className="products">
+
+        {/* Products Grid */}
+        <div className="products-section">
           {noResults ? (
-            <div className="no-products-found">
-              <img src={assets.no_products} alt="" />
-              <p>
-                Umm... No results found for the <br /> "{search}"
-              </p>
+            <div className="no-results">
+              <img src={assets.no_products} alt="No products found" />
+              <p>No matching products found</p>
+              <button className="reset-btn" onClick={handleClearFilters}>
+                Reset All Filters
+              </button>
             </div>
           ) : (
-            collection.map((item, index) => (
-              <ProductItem
-                key={index}
-                id={item._id}
-                image={item.image}
-                name={item.name}
-                price={item.price}
-                bestseller={item.bestseller}
-              />
-            ))
+            <div className="products-grid">
+              {collection.map((item) => (
+                <ProductItem
+                  key={item._id}
+                  id={item._id}
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                  bestseller={item.bestseller}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>

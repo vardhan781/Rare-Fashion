@@ -19,7 +19,6 @@ const App = () => {
   return (
     <div>
       <Toaster />
-
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

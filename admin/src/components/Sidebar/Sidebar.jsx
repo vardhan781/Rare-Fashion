@@ -1,49 +1,54 @@
 import "./Sidebar.css";
-import { assets } from "../../assets/assets";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Plus, List, Package } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [action, setAction] = useState("");
+  const location = useLocation();
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/") setActive("add");
+    else if (path === "/list") setActive("list");
+    else if (path === "/orders") setActive("orders");
+    else setActive("");
+  }, [location.pathname]);
+
+  const handleClick = (action, path) => {
+    setActive(action);
+    navigate(path);
+  };
+
   return (
-    <div className="sidebar-main-content">
+    <div className="sidebar-main">
       <div className="sidebar-buttons">
         <button
-          onClick={() => {
-            setAction("add");
-            navigate("/add");
-          }}
-          className={`sidebar-action-button ${
-            action === "add" ? "selected-action-button" : ""
-          }`}
+          onClick={() => handleClick("add", "/")}
+          className={`sidebar-btn ${active === "add" ? "active" : ""}`}
+          title="Add Product"
         >
-          <img src={assets.add} alt="" />
-          <p>Add</p>
+          <Plus />
+          <span>Add</span>
         </button>
+
         <button
-          onClick={() => {
-            setAction("list");
-            navigate("/list");
-          }}
-          className={`sidebar-action-button ${
-            action === "list" ? "selected-action-button" : ""
-          }`}
+          onClick={() => handleClick("list", "/list")}
+          className={`sidebar-btn ${active === "list" ? "active" : ""}`}
+          title="Product List"
         >
-          <img src={assets.list} alt="" />
-          <p>List</p>
+          <List />
+          <span>List</span>
         </button>
+
         <button
-          onClick={() => {
-            setAction("orders");
-            navigate("/orders");
-          }}
-          className={`sidebar-action-button ${
-            action === "orders" ? "selected-action-button" : ""
-          }`}
+          onClick={() => handleClick("orders", "/orders")}
+          className={`sidebar-btn ${active === "orders" ? "active" : ""}`}
+          title="Orders"
         >
-          <img src={assets.order} alt="" />
-          <p>Orders</p>
+          <Package />
+          <span>Orders</span>
         </button>
       </div>
     </div>
