@@ -35,7 +35,7 @@
   .hero-img img {
     width: 345px;
     height: 255px;
-    border-radius: 0;
+    border-radius: 5px;
     position: absolute;
   }
   .hero h3 {

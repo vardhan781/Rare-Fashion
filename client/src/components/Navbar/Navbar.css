@@ -147,39 +147,45 @@
 
 .navbar-cart-badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -6px;
+  right: -6px;
   background-color: var(--primary-pink);
   color: var(--text-white);
   font-size: 0.7rem;
   font-weight: 600;
-  min-width: 20px;
   height: 20px;
-  border-radius: 20px;
-  display: inline-flex;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid var(--bg-secondary);
-  padding: 0 5px;
   line-height: 1;
   box-sizing: border-box;
   white-space: nowrap;
 }
 
-.navbar-cart-badge:not(:empty) {
-  padding: 0 5px;
+/* perfect circle only for single digit */
+.navbar-cart-badge[data-count="1"],
+.navbar-cart-badge[data-count="2"],
+.navbar-cart-badge[data-count="3"],
+.navbar-cart-badge[data-count="4"],
+.navbar-cart-badge[data-count="5"],
+.navbar-cart-badge[data-count="6"],
+.navbar-cart-badge[data-count="7"],
+.navbar-cart-badge[data-count="8"],
+.navbar-cart-badge[data-count="9"] {
+  width: 20px;
+  min-width: 20px;
+  padding: 0;
 }
 
-.navbar-cart-badge[data-digits="2"],
-.navbar-cart-badge[data-digits="3"] {
-  min-width: 24px;
-}
-
-.navbar-cart-badge:contains("10+") {
+/* slightly wider for 10+ */
+.navbar-cart-badge[data-count="10-plus"] {
   min-width: 28px;
   padding: 0 6px;
 }
-
 .navbar-menu-btn {
   display: none;
   background: transparent;
@@ -478,16 +484,31 @@
   }
 
   .navbar-cart-badge {
-    top: -6px;
-    right: -6px;
-    min-width: 18px;
+    top: -5px;
+    right: -5px;
     height: 18px;
-    font-size: 0.65rem;
-    padding: 0 4px;
+    min-width: 18px;
+    font-size: 0.62rem;
+    padding: 0 5px;
   }
 
-  .navbar-cart-badge[data-digits="2"] {
-    min-width: 22px;
+  .navbar-cart-badge[data-count="1"],
+  .navbar-cart-badge[data-count="2"],
+  .navbar-cart-badge[data-count="3"],
+  .navbar-cart-badge[data-count="4"],
+  .navbar-cart-badge[data-count="5"],
+  .navbar-cart-badge[data-count="6"],
+  .navbar-cart-badge[data-count="7"],
+  .navbar-cart-badge[data-count="8"],
+  .navbar-cart-badge[data-count="9"] {
+    width: 18px;
+    min-width: 18px;
+    padding: 0;
+  }
+
+  .navbar-cart-badge[data-count="10-plus"] {
+    min-width: 24px;
+    padding: 0 5px;
   }
 
   .navbar-sidebar {
@@ -522,16 +543,32 @@
   }
 
   .navbar-cart-badge {
-    top: -5px;
-    right: -5px;
-    min-width: 16px;
+    top: -4px;
+    right: -4px;
     height: 16px;
-    font-size: 0.6rem;
-    padding: 0 3px;
+    min-width: 16px;
+    font-size: 0.58rem;
+    padding: 0 4px;
+    border-width: 1.5px;
   }
 
-  .navbar-cart-badge[data-digits="2"] {
-    min-width: 20px;
+  .navbar-cart-badge[data-count="1"],
+  .navbar-cart-badge[data-count="2"],
+  .navbar-cart-badge[data-count="3"],
+  .navbar-cart-badge[data-count="4"],
+  .navbar-cart-badge[data-count="5"],
+  .navbar-cart-badge[data-count="6"],
+  .navbar-cart-badge[data-count="7"],
+  .navbar-cart-badge[data-count="8"],
+  .navbar-cart-badge[data-count="9"] {
+    width: 16px;
+    min-width: 16px;
+    padding: 0;
+  }
+
+  .navbar-cart-badge[data-count="10-plus"] {
+    min-width: 22px;
+    padding: 0 4px;
   }
 
   .navbar-sidebar {
@@ -601,17 +638,32 @@
   }
 
   .navbar-cart-badge {
-    top: -4px;
-    right: -4px;
-    min-width: 14px;
+    top: -3px;
+    right: -3px;
     height: 14px;
-    font-size: 0.55rem;
-    padding: 0 2px;
-    border-width: 1.5px;
+    min-width: 14px;
+    font-size: 0.5rem;
+    padding: 0 3px;
+    border-width: 1px;
   }
 
-  .navbar-cart-badge[data-digits="2"] {
-    min-width: 18px;
+  .navbar-cart-badge[data-count="1"],
+  .navbar-cart-badge[data-count="2"],
+  .navbar-cart-badge[data-count="3"],
+  .navbar-cart-badge[data-count="4"],
+  .navbar-cart-badge[data-count="5"],
+  .navbar-cart-badge[data-count="6"],
+  .navbar-cart-badge[data-count="7"],
+  .navbar-cart-badge[data-count="8"],
+  .navbar-cart-badge[data-count="9"] {
+    width: 14px;
+    min-width: 14px;
+    padding: 0;
+  }
+
+  .navbar-cart-badge[data-count="10-plus"] {
+    min-width: 20px;
+    padding: 0 3px;
   }
 
   .navbar-sidebar {
