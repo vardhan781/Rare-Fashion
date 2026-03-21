@@ -45,9 +45,9 @@
     top: 20px;
   }
   .hero h2 {
-    font-size: 18px;
+    font-size: 17px;
     position: relative;
-    top: -51px;
+    top: -36px;
     left: 190px;
     font-weight: 600;
     font-style: italic;
@@ -121,7 +121,7 @@
     font-weight: 600;
     font-style: italic;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
     position: relative;
     right: -78px;
     top: -316px;

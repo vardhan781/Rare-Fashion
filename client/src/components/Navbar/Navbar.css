@@ -147,19 +147,37 @@
 
 .navbar-cart-badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -8px;
+  right: -8px;
   background-color: var(--primary-pink);
   color: var(--text-white);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   min-width: 20px;
   height: 20px;
-  border-radius: 50%;
-  display: flex;
+  border-radius: 20px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 2px solid var(--bg-secondary);
+  padding: 0 5px;
+  line-height: 1;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.navbar-cart-badge:not(:empty) {
+  padding: 0 5px;
+}
+
+.navbar-cart-badge[data-digits="2"],
+.navbar-cart-badge[data-digits="3"] {
+  min-width: 24px;
+}
+
+.navbar-cart-badge:contains("10+") {
+  min-width: 28px;
+  padding: 0 6px;
 }
 
 .navbar-menu-btn {
@@ -460,9 +478,16 @@
   }
 
   .navbar-cart-badge {
-    width: 18px;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
     height: 18px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    padding: 0 4px;
+  }
+
+  .navbar-cart-badge[data-digits="2"] {
+    min-width: 22px;
   }
 
   .navbar-sidebar {
@@ -497,11 +522,16 @@
   }
 
   .navbar-cart-badge {
-    width: 16px;
+    top: -5px;
+    right: -5px;
+    min-width: 16px;
     height: 16px;
-    font-size: 0.65rem;
-    top: -4px;
-    right: -4px;
+    font-size: 0.6rem;
+    padding: 0 3px;
+  }
+
+  .navbar-cart-badge[data-digits="2"] {
+    min-width: 20px;
   }
 
   .navbar-sidebar {
@@ -571,11 +601,17 @@
   }
 
   .navbar-cart-badge {
-    width: 14px;
+    top: -4px;
+    right: -4px;
+    min-width: 14px;
     height: 14px;
-    font-size: 0.6rem;
-    top: -3px;
-    right: -3px;
+    font-size: 0.55rem;
+    padding: 0 2px;
+    border-width: 1.5px;
+  }
+
+  .navbar-cart-badge[data-digits="2"] {
+    min-width: 18px;
   }
 
   .navbar-sidebar {

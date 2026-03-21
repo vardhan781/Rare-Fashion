@@ -156,7 +156,12 @@ const Navbar = () => {
                   <ShoppingCart size={22} />
                 </button>
                 {cartItemCount > 0 && (
-                  <span className="navbar-cart-badge">
+                  <span
+                    className="navbar-cart-badge"
+                    data-count={
+                      cartItemCount > 10 ? "10-plus" : cartItemCount.toString()
+                    }
+                  >
                     {cartItemCount > 10 ? "10+" : cartItemCount}
                   </span>
                 )}

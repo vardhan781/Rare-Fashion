@@ -275,6 +275,11 @@
   gap: 25px;
 }
 
+.products-grid > * {
+  width: 100%;
+  min-width: 0;
+}
+
 .no-results {
   text-align: center;
   padding: 60px 20px;
@@ -410,5 +415,20 @@
     grid-template-columns: 1fr;
     max-width: 280px;
     margin: 0 auto;
+  }
+  .products-grid > * {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .products-grid {
+    max-width: 280px;
+  }
+
+  .products-grid > * {
+    max-width: 280px;
   }
 }

@@ -20,12 +20,12 @@
 .about-sec-detail h1 {
   background-color: transparent;
   font-size: 40px;
-  color: #35322f;
+  color: #232323;
 }
 .about-sec-detail span {
   display: block;
   position: relative;
-  border: 1px solid black;
+  border: 1px solid #363636;
   background-color: black;
   height: 1px;
   width: 580px;
@@ -92,7 +92,7 @@
   }
   .about-para {
     width: 290px;
-    gap: 50px;
+    gap: 30px;
   }
   .about-sec img {
     height: 600px;
