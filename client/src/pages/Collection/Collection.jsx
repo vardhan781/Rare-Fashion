@@ -129,38 +129,10 @@ const Collection = () => {
       {/* Left Section */}
       <div className="left-collect">
         <div className="filter-card">
-          <div className="filter-header">
-            <h3>
-              <Filter size={18} /> Categories
-            </h3>
-            {getSelectedCount() > 0 && (
-              <button className="clear-categories" onClick={handleClearFilters}>
-                Clear
-              </button>
-            )}
-          </div>
-
-          <div className="category-list">
-            {categories.map((cat) => (
-              <label key={cat.value} className="category-checkbox">
-                <input
-                  type="checkbox"
-                  value={cat.value}
-                  checked={category.includes(cat.value)}
-                  onChange={toggleCategory}
-                />
-                <span className="custom-checkbox">
-                  {category.includes(cat.value) && (
-                    <div className="check-icon">✓</div>
-                  )}
-                </span>
-                <span className="category-label">{cat.label}</span>
-              </label>
-            ))}
-          </div>
-
           <div className="sort-section">
-            <h3>Sort By</h3>
+            <h3>
+              <Filter size={16} /> Sort By
+            </h3>
             <div className="custom-select" ref={sortRef}>
               <button
                 className="select-trigger"
@@ -186,6 +158,41 @@ const Collection = () => {
                   ))}
                 </div>
               )}
+            </div>
+          </div>
+
+          <div className="category-section">
+            <div className="filter-header">
+              <h3>
+                <Filter size={16} /> Categories
+              </h3>
+              {getSelectedCount() > 0 && (
+                <button
+                  className="clear-categories"
+                  onClick={handleClearFilters}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+
+            <div className="category-list">
+              {categories.map((cat) => (
+                <label key={cat.value} className="category-checkbox">
+                  <input
+                    type="checkbox"
+                    value={cat.value}
+                    checked={category.includes(cat.value)}
+                    onChange={toggleCategory}
+                  />
+                  <span className="custom-checkbox">
+                    {category.includes(cat.value) && (
+                      <div className="check-icon">✓</div>
+                    )}
+                  </span>
+                  <span className="category-label">{cat.label}</span>
+                </label>
+              ))}
             </div>
           </div>
         </div>

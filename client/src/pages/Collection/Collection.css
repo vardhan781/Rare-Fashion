@@ -27,7 +27,6 @@
   justify-content: space-between;
   margin-bottom: 15px;
   padding-bottom: 15px;
-  border-bottom: 2px solid var(--secondary-pink);
 }
 
 .filter-header h3 {
@@ -107,15 +106,22 @@
 }
 
 .sort-section {
-  padding-top: 20px;
-  border-top: 2px solid var(--secondary-pink);
+  margin-bottom: 25px;
 }
 
 .sort-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 18px;
   color: var(--primary-pink-dark);
   margin-bottom: 15px;
   font-weight: 600;
+}
+
+.category-section {
+  padding-top: 20px;
+  border-top: 2px solid var(--secondary-pink);
 }
 
 .custom-select {
