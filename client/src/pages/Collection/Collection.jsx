@@ -223,12 +223,6 @@ const Collection = () => {
             <p>
               Showing <span className="count">{collection.length}</span>{" "}
               products
-              {search && (
-                <>
-                  {" "}
-                  for "<span className="search-term">{search}</span>"
-                </>
-              )}
             </p>
           </div>
         </div>
