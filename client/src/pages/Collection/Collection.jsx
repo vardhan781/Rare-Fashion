@@ -82,15 +82,13 @@ const Collection = () => {
   };
 
   const handleClearFilters = () => {
-    const checkboxes = document.querySelectorAll(
-      '.category-checkbox input[type="checkbox"]',
-    );
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        checkbox.click();
-      }
+    const activeCategories = [...category];
+    activeCategories.forEach((catValue) => {
+      toggleCategory({ target: { value: catValue } });
     });
+
     setSearch("");
+
     setSortOption("preference");
   };
 
@@ -126,13 +124,40 @@ const Collection = () => {
 
   return (
     <div className="collect">
-      {/* Left Section */}
-      <div className="left-collect">
-        <div className="filter-card">
-          <div className="sort-section">
-            <h3>
-              <Filter size={16} /> Sort By
-            </h3>
+      <div className="filter-bar">
+        <div className="filter-bar-left">
+          <div className="categories-filter">
+            <span className="filter-label">
+              <Filter size={16} /> Categories
+            </span>
+            <div className="category-chips">
+              {categories.map((cat) => (
+                <button
+                  key={cat.value}
+                  className={`category-chip ${category.includes(cat.value) ? "active" : ""}`}
+                  onClick={() =>
+                    toggleCategory({ target: { value: cat.value } })
+                  }
+                >
+                  {cat.label}
+                  {category.includes(cat.value) && (
+                    <X size={14} className="chip-remove" />
+                  )}
+                </button>
+              ))}
+            </div>
+            {getSelectedCount() > 0 && (
+              <button
+                className="clear-filters-btn"
+                onClick={handleClearFilters}
+              >
+                Clear all
+              </button>
+            )}
+          </div>
+
+          <div className="sort-filter">
+            <span className="filter-label">Sort By</span>
             <div className="custom-select" ref={sortRef}>
               <button
                 className="select-trigger"
@@ -160,47 +185,9 @@ const Collection = () => {
               )}
             </div>
           </div>
-
-          <div className="category-section">
-            <div className="filter-header">
-              <h3>
-                <Filter size={16} /> Categories
-              </h3>
-              {getSelectedCount() > 0 && (
-                <button
-                  className="clear-categories"
-                  onClick={handleClearFilters}
-                >
-                  Clear
-                </button>
-              )}
-            </div>
-
-            <div className="category-list">
-              {categories.map((cat) => (
-                <label key={cat.value} className="category-checkbox">
-                  <input
-                    type="checkbox"
-                    value={cat.value}
-                    checked={category.includes(cat.value)}
-                    onChange={toggleCategory}
-                  />
-                  <span className="custom-checkbox">
-                    {category.includes(cat.value) && (
-                      <div className="check-icon">✓</div>
-                    )}
-                  </span>
-                  <span className="category-label">{cat.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
         </div>
-      </div>
 
-      {/* Right Section */}
-      <div className="right-collect">
-        <div className="search-section">
+        <div className="filter-bar-right">
           <div className="search-box">
             <Search size={20} className="search-icon" />
             <input
@@ -209,7 +196,7 @@ const Collection = () => {
               onChange={handleSearchChange}
               onKeyDown={handleKeyDown}
               type="text"
-              placeholder="Find your perfect outfit..."
+              placeholder="Find your perfect outfit"
               maxLength="50"
             />
             {search && (
@@ -218,40 +205,45 @@ const Collection = () => {
               </button>
             )}
           </div>
-
-          <div className="results-info">
-            <p>
-              Showing <span className="count">{collection.length}</span>{" "}
-              products
-            </p>
-          </div>
         </div>
+      </div>
 
-        {/* Products Grid */}
-        <div className="products-section">
-          {noResults ? (
-            <div className="no-results">
-              <img src={assets.no_products} alt="No products found" />
-              <p>No matching products found</p>
-              <button className="reset-btn" onClick={handleClearFilters}>
-                Reset All Filters
-              </button>
-            </div>
-          ) : (
-            <div className="products-grid">
-              {collection.map((item) => (
-                <ProductItem
-                  key={item._id}
-                  id={item._id}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  bestseller={item.bestseller}
-                />
-              ))}
-            </div>
+      <div className="results-info">
+        <p>
+          Showing <span className="count">{collection.length}</span> products
+          {getSelectedCount() > 0 && (
+            <span className="active-filters-badge">
+              {" "}
+              with {getSelectedCount()} active{" "}
+              {getSelectedCount() === 1 ? "filter" : "filters"}
+            </span>
           )}
-        </div>
+        </p>
+      </div>
+
+      <div className="products-section">
+        {noResults ? (
+          <div className="no-results">
+            <img src={assets.no_products} alt="No products found" />
+            <p>No matching products found</p>
+            <button className="reset-btn" onClick={handleClearFilters}>
+              Reset All Filters
+            </button>
+          </div>
+        ) : (
+          <div className="products-grid">
+            {collection.map((item) => (
+              <ProductItem
+                key={item._id}
+                id={item._id}
+                image={item.image}
+                name={item.name}
+                price={item.price}
+                bestseller={item.bestseller}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
